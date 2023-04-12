@@ -30,9 +30,7 @@ const Wrapper = styled(Responsive)`
   }
 `;
 
-/**
- * 헤더가 fixed로 되어 있기 때문에 페이지의 콘텐츠가 4rem 아래에 나타나도록 해 주는 컴포넌트
- */
+/* 헤더가 fixed로 되어 있기 때문에 페이지의 콘텐츠가 4rem 아래에 나타나도록 해 주는 컴포넌트 */
 const Spacer = styled.div`
   height: 4rem;
 `;
@@ -48,7 +46,7 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to='/' className="logo">
-            REACTERS
+            중고차 사이트트
           </Link>
           {user ? (
             <div className='right'>
