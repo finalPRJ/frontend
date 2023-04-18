@@ -25,7 +25,7 @@ export const changeField = createAction(
     value, // 실제 바꾸려는 값
   }),
 );
-export const initializeForm = createAction(INITIALIZE_FORM, form => form); // register/login
+export const initializeForm = createAction(INITIALIZE_FORM, form => form); // register인지 login인지
 export const register = createAction(REGISTER, ({ username, password }) => ({
   username,
   password,
@@ -48,6 +48,8 @@ const initialState = {
     username: '',
     password: '',
     passwordConfirm: '',
+    nickname: '',
+
   },
   login: {
     username: '',
