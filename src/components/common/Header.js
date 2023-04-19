@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 const HeaderBlock = styled.div`
   position: fixed;
   width: 100%;
-  background: yellow;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
 `;
 
+/**메뉴안의 ul,li 스타일 */
 const Menu = styled.ul`
   list-style: none;
   align-items: center;
@@ -22,6 +22,7 @@ const Menu = styled.ul`
     margin-bottom: 0.5rem;
     .text {
       font-size: 20px;
+      font-weight: 800;
       &:hover{
         color: orange;
       }
@@ -38,19 +39,21 @@ const Wrapper = styled(Responsive)`
   display: flex;
   align-items: center;
   justify-content: space-between; /* 자식 엘리먼트 사이의 여백을 최대로 설정 */
-  width: 1680px;
+  width: 1280px;
   .menu {
-    width: 960px;
+    width: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .logo {
+    width: 180px;
     font-size: 1.125rem;
     font-weight: 800;
     letter-spacing: 2px;
   }
   .right {
+    width: 200px;
     display: flex;
     align-items: center;
   }
@@ -73,11 +76,11 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to='/' className="logo">
-            중고차 사이트트
+            중고차 사이트
           </Link>
           <div className='menu'>
             <Menu>
-                <li className='text-menu'><a href='login' className='text'>차량검색</a></li>
+                <li className='text-menu'><a href='carsearch' className='text'>차량검색</a></li>
                 <li className='text-menu'><a href='login' className='text'>차량추천</a></li>
                 <li className='text-menu'><a href='login' className='text'>리콜분석</a></li>
                 <li className='text-menu'><a href='login' className='text'>자동차정보</a></li>

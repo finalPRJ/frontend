@@ -4,13 +4,17 @@ import PostListPage from "./pages/PostListPage";
 import PostPage from "./pages/PostPage";
 import RegisterPage from "./pages/RegisterPage";
 import WritePage from "./pages/WritePage";
+import Mainpage from "./pages/Mainpage";
+import CarSearchpage from "./pages/CarSearchpage";
 
 
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<PostListPage/>}/>
+      <Route path="/" element={<Mainpage/>}/>
+      <Route path="/postList" element={<PostListPage/>}/>
+      <Route path="/carsearch" element={<CarSearchpage/>}/>
       <Route path="/login" element={<LoginPage/>}/>
       <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/write" element={<WritePage/>}/>

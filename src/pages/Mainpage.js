@@ -1,8 +1,8 @@
-import SearchBox from "../components/common/SearchBox";
 import HeaderContainer from "../containers/common/HeaderContainer";
+import SearchBox from "../components/common/SearchBox";
 
 
-const PostListPage = () => {
+const Mainpage = () => {
     return (
         <div>
             <HeaderContainer/>
@@ -11,4 +11,4 @@ const PostListPage = () => {
     )
 }
 
-export default PostListPage;
+export default Mainpage;
