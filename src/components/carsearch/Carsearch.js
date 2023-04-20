@@ -5,6 +5,7 @@ const CarsearchBlock = styled.div`
     position: fixed;
     width: 100%;
     background: red;
+    overflow: auto;
 `;
 
 const CarSearchContent = styled.div`
