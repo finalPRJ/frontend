@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 const HeaderBlock = styled.div`
   position: fixed;
   width: 100%;
+  background: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  z-index: 2;
 `;
 
 /**메뉴안의 ul,li 스타일 */

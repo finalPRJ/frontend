@@ -2,34 +2,52 @@ import styled from "styled-components";
 import Carcard from "./Carcard";
 
 const CarsearchBlock = styled.div`
-    position: fixed;
     width: 100%;
     background: red;
-    overflow: auto;
+    z-index: 1;
 `;
 
 const CarSearchContent = styled.div`
     width: 1280px;
     display: flex;
-    flex-direction: row;
-    flex-flow: wrap;;
     background: yellowgreen;
     margin: auto;
     padding: 2rem;
+    .menuBlock {
+        width: 280px;
+        float: left;
+        box-sizing: border-box;
+        background: pink;
+    }
+    
+    .contentBlock {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        width: 1000px;
+        float: right;
+        box-sizing: border-box;
+        background: violet;
+    }
 `
 
 const Carsearch = () => {
     return (
         <CarsearchBlock>
             <CarSearchContent>
-                <Carcard/>
-                <Carcard/>
-                <Carcard/>
-                <Carcard/>
-                <Carcard/>
-                <Carcard/>
-                <Carcard/>
-                <Carcard/>
+                <div className="menuBlock">
+                    메뉴 입갤
+                </div>
+                <div className="contentBlock">
+                    <Carcard/>
+                    <Carcard/>
+                    <Carcard/>
+                    <Carcard/>
+                    <Carcard/>
+                    <Carcard/>
+                    <Carcard/>
+                    <Carcard/>
+                </div>
             </CarSearchContent>
         </CarsearchBlock>
     )
