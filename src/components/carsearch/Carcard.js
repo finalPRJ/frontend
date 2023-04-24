@@ -5,7 +5,7 @@ const CarcardBlock = styled.div`
     width: 200px;
     height: 20rem;
     background: blue;
-    margin: 2rem;
+    margin: 1rem;
     padding: 0.5rem;
     img {
         margin: 0 auto;

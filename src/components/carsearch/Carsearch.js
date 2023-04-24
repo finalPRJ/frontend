@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import Carcard from "./Carcard";
+import Carmenu from "./Carmenu";
 
 const CarsearchBlock = styled.div`
     width: 100%;
-    background: red;
-    z-index: 1;
 `;
 
 const CarSearchContent = styled.div`
     width: 1280px;
     display: flex;
-    background: yellowgreen;
     margin: auto;
     padding: 2rem;
     .menuBlock {
@@ -36,7 +34,7 @@ const Carsearch = () => {
         <CarsearchBlock>
             <CarSearchContent>
                 <div className="menuBlock">
-                    메뉴 입갤
+                    <Carmenu/>
                 </div>
                 <div className="contentBlock">
                     <Carcard/>

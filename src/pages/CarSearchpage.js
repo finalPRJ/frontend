@@ -5,7 +5,7 @@ import SearchBox from "../components/common/SearchBox";
 
 const CarSearchpage = () => {
     return (
-        <div style={{ overflowY: "auto" }}>
+        <div>
             <HeaderContainer/>
             <SearchBox/>
             <Carsearch/>
