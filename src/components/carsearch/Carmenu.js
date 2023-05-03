@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const CarmenuBlock = styled.div`
@@ -34,15 +35,21 @@ const CarmenuContent = styled.div`
 `;
 
 
-const Carmenu = () => {
+const Carmenu = ({onLegionChange}) => {
 
     return(
         <CarmenuBlock>
             <CarmenuContent>
                 <ul className="SearchTag">
-                    <li className="list"><a href="carsearch">전체</a></li>
-                    <li className="list"><a href="carsearch">국산</a></li>
-                    <li className="list"><a href="carsearch">외국</a></li>
+                    <li className="list">
+                        <Link to="/carsearch"
+                            onClick={() => onLegionChange('')}>전체</Link>
+                    </li>
+                    <li className="list">
+                        <Link to="/carsearch"
+                            onClick={() => onLegionChange('국산')}>국산</Link>
+                    </li>
+                    <li className="list"><a href="carsearch/외국">외국</a></li>
                 </ul>
             </CarmenuContent>
         </CarmenuBlock>

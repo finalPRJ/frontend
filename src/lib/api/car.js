@@ -1,3 +1,4 @@
 import client from "./client";
 
-export const carinfo = () => client.get('/car/list')
+export const carList = () => client.get('http://192.168.1.6:8070/car/list')
+

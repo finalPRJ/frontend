@@ -15,7 +15,6 @@ const CarSearchContent = styled.div`
         width: 280px;
         float: left;
         box-sizing: border-box;
-        background: pink;
     }
     
     .contentBlock {
@@ -25,26 +24,21 @@ const CarSearchContent = styled.div`
         width: 1000px;
         float: right;
         box-sizing: border-box;
-        background: violet;
     }
 `
 
-const Carsearch = () => {
+const Carsearch = ({cars , onLegionChange}) => {
+
     return (
         <CarsearchBlock>
             <CarSearchContent>
                 <div className="menuBlock">
-                    <Carmenu/>
+                    <Carmenu onLegionChange={onLegionChange}/>
                 </div>
                 <div className="contentBlock">
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
+                    {cars.dtoList && cars.dtoList.map((dtoList,index) => (
+                        <Carcard carData = {dtoList} key={index}/>
+                    ))}
                 </div>
             </CarSearchContent>
         </CarsearchBlock>
