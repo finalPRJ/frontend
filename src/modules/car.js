@@ -1,6 +1,6 @@
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { createAction, handleActions } from 'redux-actions';
-import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
+import { createRequestActionTypes } from '../lib/createRequestSaga';
 import * as carList from '../lib/api/car';
 
 // 로딩 상태 액션 타입 정의
@@ -15,7 +15,7 @@ export const finishLoading = createAction(FINISH_LOADING);
 const [FETCH_CARS,FETCH_CARS_SUCCESS,FETCH_CARS_FAILURE] = createRequestActionTypes(
   'carList/FETCH_CARS'
 );
-const CHANGE_LEGION = 'carList/CHANGE_LEGION';
+const CHANGE_CAR_FILTERS = 'carList/CHANGE_CAR_FILTERS';
 
 //사가 생성
 export const listCars = createAction(
@@ -23,8 +23,45 @@ export const listCars = createAction(
 );
 
 // 액션 생성자 함수 정의
-const carSaga = createRequestSaga(FETCH_CARS,carList.carList);
-export const changeLegion = createAction(CHANGE_LEGION, (legion) => legion);
+export const changeCarFilters = createAction(CHANGE_CAR_FILTERS, ({legion,platform}) => ({legion,platform}));
+
+//요청에 조건문을 넣어줘야해서 따로 만들음
+export function* carSaga() {
+  const { legion, platform } = yield select(state => state.car.filters);
+
+  // 원래 요청하던 carList 함수 호출
+  let apiFunction = carList.carList;
+  let apiParams = {};
+
+  if (legion !== '') {
+    // legion이 '' 아니라면 type='legion'인 요청을 하도록 수정
+    apiParams = { type: legion };
+    console.log(`legion = ${legion}`)
+  }
+  if (platform !== '') {
+    // platform이 '' 아니라면 type='platform'인 요청을 하도록 수정
+    apiParams = { ...apiParams, type: platform}
+  }
+
+  yield put(startLoading(FETCH_CARS));
+
+  try {
+    const cars = yield call(apiFunction, apiParams);
+    console.log('car상태: ',cars);
+    yield put({
+      type: FETCH_CARS_SUCCESS,
+      payload: cars,
+    });
+  } catch (error) {
+    yield put({
+      type: FETCH_CARS_FAILURE,
+      payload: error,
+      error: true,
+    });
+  }
+
+  yield put(finishLoading(FETCH_CARS));
+}
 
 
 // 사가 함수 정의
@@ -37,7 +74,10 @@ const initialState = {
   loading: false,
   cars: [],
   error: null,
-  legion: '',
+  filters: {
+    legion: '',
+    platform: ''
+  }
 };
 
 // 리듀서 함수 정의
@@ -71,9 +111,14 @@ const car = handleActions(
       cars: [],
       error: action.payload,
     }),
-    [CHANGE_LEGION]: (state, action) => ({
+    [CHANGE_CAR_FILTERS]: (state, action) => ({
       ...state,
-      legion: action.payload,
+      filters: {
+        ...state.filters,
+        legion: action.payload.legion,
+        platform: action.payload.platform,
+      },
+      error: null,
     }),
   },
   initialState

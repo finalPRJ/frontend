@@ -27,18 +27,18 @@ const CarSearchContent = styled.div`
     }
 `
 
-const Carsearch = ({cars , onLegionChange}) => {
+const Carsearch = ({cars , handleChangeFilters}) => {
 
     return (
         <CarsearchBlock>
             <CarSearchContent>
                 <div className="menuBlock">
-                    <Carmenu onLegionChange={onLegionChange}/>
+                    <Carmenu handleChangeFilters={handleChangeFilters}/>
                 </div>
                 <div className="contentBlock">
-                    {cars.dtoList && cars.dtoList.map((dtoList,index) => (
-                        <Carcard carData = {dtoList} key={index}/>
-                    ))}
+                    {cars.data && cars.data.dtoList && cars.data.dtoList.map((dtoList, index) => (
+                    <Carcard carData={dtoList} key={index}/>
+                ))}
                 </div>
             </CarSearchContent>
         </CarsearchBlock>

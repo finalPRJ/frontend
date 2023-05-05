@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { changeLegion, listCars } from "../../modules/car";
+import { changeCarFilters, listCars } from "../../modules/car";
 import Carsearch from "../../components/carsearch/Carsearch";
 
 
 const Carsearchcontainer = () => {
     const dispatch = useDispatch();
-    const cars = useSelector(({car}) => ({
+    const {cars,filters} = useSelector(({car}) => ({
         cars: car.cars,
+        filters : car.filters
     }));
 
-    const handleLegionChange = (legion) => {
-        dispatch(changeLegion(legion));
+    const handleChangeFilters = (filterObj) => {
+        const updatedFilters = { ...filters, ...filterObj };
+        dispatch(changeCarFilters(updatedFilters));
+        dispatch(listCars());
     };
 
     useEffect(() => {
@@ -20,8 +23,8 @@ const Carsearchcontainer = () => {
 
     return (
         <Carsearch 
-        cars={cars.cars}
-        onLegionChange={handleLegionChange}
+        cars={cars}
+        handleChangeFilters={handleChangeFilters}
         />
     )
 }

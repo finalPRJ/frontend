@@ -85,7 +85,7 @@ const Header = ({ user, onLogout }) => {
                 <li className='text-menu'><a href='/carsearch' className='text'>차량검색</a></li>
                 <li className='text-menu'><a href='login' className='text'>차량추천</a></li>
                 <li className='text-menu'><a href='login' className='text'>리콜분석</a></li>
-                <li className='text-menu'><a href='login' className='text'>자동차정보</a></li>
+                <li className='text-menu'><a href='/Information' className='text'>자동차정보</a></li>
                 <li className='text-menu'><a href='login' className='text'>리스</a></li>
             </Menu>
           </div>

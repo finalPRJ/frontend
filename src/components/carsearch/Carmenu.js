@@ -35,7 +35,7 @@ const CarmenuContent = styled.div`
 `;
 
 
-const Carmenu = ({onLegionChange}) => {
+const Carmenu = ({handleChangeFilters}) => {
 
     return(
         <CarmenuBlock>
@@ -43,13 +43,15 @@ const Carmenu = ({onLegionChange}) => {
                 <ul className="SearchTag">
                     <li className="list">
                         <Link to="/carsearch"
-                            onClick={() => onLegionChange('')}>전체</Link>
+                            onClick={() => handleChangeFilters({})}>전체</Link>
                     </li>
                     <li className="list">
                         <Link to="/carsearch"
-                            onClick={() => onLegionChange('국산')}>국산</Link>
+                            onClick={() => handleChangeFilters({legion: '국산'})}>국산</Link>
                     </li>
-                    <li className="list"><a href="carsearch/외국">외국</a></li>
+                    <li className="list">
+                        <Link to="/carsearch"
+                            onClick={() => handleChangeFilters({legion: '수입'})}>수입</Link></li>
                 </ul>
             </CarmenuContent>
         </CarmenuBlock>
