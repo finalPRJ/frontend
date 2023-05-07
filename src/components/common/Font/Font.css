@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "KoPubWorld";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: normal;
+    src: url("./KoPubWorld\ Dotum\ Medium.ttf");
+}
