@@ -30,7 +30,6 @@ const InfomenuContent = styled.div`
             align-items: center;
             justify-content: space-between;
             margin-top: 10px;
-            margin-left: 10px;
             margin-bottom: 10px;
             font-size: 15px;
             font-weight: 800;
@@ -126,6 +125,9 @@ const Infomenu = ({ onClick }) => {
                         <dd onClick={() => onClick("newcar")}>자동차 신차보험(선택)</dd>
                         <dd onClick={() => onClick("oldcar")}>자동차 중고차보험(선택)</dd>
                     </div>
+                </div>
+                <div className="InfoTag" onClick={() => onClick("choose")}>      
+                    <text className="text">자동차 보험 추천</text>     
                 </div>    
             </InfomenuContent>
         </InfomenuBlock>  

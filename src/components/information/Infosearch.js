@@ -3,6 +3,7 @@ import Infomenu from "./Infomenu";
 import { useState } from "react";
 
 import Maininfo from "./maininfo";                  // 자동차/보험 페이지 이동 시 보여질 화면
+import Choose from "./choose";
 
 // 자동차 정보 페이지들
 import Gasmileage from "./carinfo/gasmileage";      // 연비 페이지
@@ -76,6 +77,7 @@ const Infosearch = () => {
                     {selectedPage === "sale" && <Sale />}
                     {selectedPage === "newcar" && <Newcar />}
                     {selectedPage === "oldcar" && <Oldcar />}
+                    {selectedPage === "choose" && <Choose />}
                 </div>
             </InfoSearchContent>
         </InfosearchBlock>
