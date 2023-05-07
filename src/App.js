@@ -7,13 +7,14 @@ import WritePage from "./pages/WritePage";
 import Mainpage from "./pages/Mainpage";
 import CarSearchpage from "./pages/CarSearchpage";
 import ReCallPage from "./pages/RecallPage"
-
+import Chart from "./components/Chart.js/Chart"
 
 const App = () => {
   return (
     <Routes>
       {/* <Route exact path="/" element={<Mainpage/>}/> */}
-      <Route exact path="/" element={<ReCallPage/>}/>
+      {/* <Route exact path="/" element={<ReCallPage/>}/> */}
+      <Route exact path="/" element={<Chart/>}/>
       <Route path="/postList" element={<PostListPage/>}/>
       <Route path="/carsearch" element={<CarSearchpage/>}/>
       <Route path="/recall" element={<ReCallPage/>}/>
