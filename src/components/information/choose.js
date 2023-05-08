@@ -15,7 +15,7 @@ const ChooseBlock = styled.div`
         border-width: 2px;
         border-style: solid;
         border-color: black;
-        margin: 40px auto;
+        margin: auto;
         text-align: center;
         background-color: yellow;
     }
@@ -145,7 +145,7 @@ const Products = [
             { atype: "50대", value: 64.1 },
             { atype: "60대", value: 71 },
             { ctype: "경차", value: 56.8 },
-            { ctype: "소형차", value: 34.9 },
+            { ctype: "소형차", value: 64.9 },
             { ctype: "중형차", value: 66 },
             { ctype: "대형차", value: 80.4 },
             { ktype: "2000", value: 33.5 },
@@ -306,26 +306,25 @@ const Choose = () => {
         for (let i = 0; i < Products.length; i++) {
             const name = Products[i].name;
             const requirements = Products[i].requirements;
-            let score = 0;
         
             for (let j = 0; j < requirements.length; j++) {
               const requirement = requirements[j];
-        
-              if (requirement.atype === selectedAge) {
-                score += requirement.value - AtypeValue;
-              }
-              if (requirement.ctype === selectedCar) {
-                score += requirement.value - CtypeValue;
-              }
-              if (requirement.ktype === selectedKm) {
-                score += KtypeValue - requirement.value;
-              }
-            }
-        
-            if (score > 0) {
-              ageRecommend.push(name);
-              carRecommend.push(name);
-              kmRecommend.push(name);
+                // 선택한 값과 일치하는 type 항목에서 계산된 최솟값에 해당하는 보험사 이름을 push
+                if (requirement.atype === selectedAge) {
+                    if (requirement.value === AtypeValue) {
+                        ageRecommend.push(name);
+                    }        
+                }
+                if (requirement.ctype === selectedCar) {
+                    if (requirement.value === CtypeValue) {
+                        carRecommend.push(name);
+                    } 
+                }
+                if (requirement.ktype === selectedKm) {
+                    if (requirement.value === KtypeValue) {
+                        kmRecommend.push(name);
+                    } 
+                }
             }
         }
 
@@ -337,6 +336,8 @@ const Choose = () => {
             ...kmRecommend,
         ];
       
+        // combineRecommend 객체를 순회하면서 각 보험사 이름이 몇번 언급되었는지 recommendCounts 객체에 저장
+        // recommendCounts 객체에 보험사 이름이 존재 시 이름 값에 +1, 존재 X시 값을 1로 초기화
         const recommendCounts = {};
         for (let i=0; i<combineRecommend.length; i++) {
             const name = combineRecommend[i];
@@ -348,27 +349,37 @@ const Choose = () => {
         }
 
         let maxCount = -1;
-        let recommend ="";
+        let recommend = [];
         for (const name in recommendCounts) {
             const count = recommendCounts[name];
-            if (count > maxCount) {
+            if (count > maxCount) {     // maxCount 값 갱신
                 maxCount = count;
-                recommend = name;
+                recommend = [name];     // recommend 배열에 보험사 이름을 배열로 저장
+            }                           // 배열로 저장하는 이유: 각각의 옵션에서 각기 다른 보험사를 추천할 수 있어서
+            else if (count === maxCount) { 
+                recommend.push(name);   // 배열에 이미 보험사 이름이 존재하는 경우 push로 추가
             }
         }
+
+        // 확인용
+        console.log(recommendCounts);   
         console.log(ageRecommend);
         console.log(carRecommend);
         console.log(kmRecommend);
         console.log(recommend);
 
-        if (!!recommend) {
+        // recommend값이 null이 아닌 경우/ 선택 옵션을 선택 안하고 제출 누르는 경우 고려
+        if (!!recommend) {  
             const div3 = document.querySelector('.div3'); // .div3 클래스를 가진 요소 선택
             const textElements = div3.querySelectorAll('text'); // div3 요소의 모든 text 요소 선택
 
             // 추천하는 보험사 텍스트 노드 교체
-            textElements[1].textContent = recommend;
+            textElements[1].textContent = ageRecommend;
+            textElements[3].textContent = carRecommend;
+            textElements[5].textContent = kmRecommend;
+            textElements[7].textContent = recommend;
         }
-      }
+    }
         
     
     return(
@@ -419,6 +430,18 @@ const Choose = () => {
                 <br/><br/>
             </div>
             <div className="div3">
+                <br/><br/>
+                <text className="text">나이로 추천하는 보험사</text>
+                <br/><br/>
+                <text>추천하는 보험사</text>
+                <br/><br/>
+                <text className="text">차종으로 추천하는 보험사</text>
+                <br/><br/>
+                <text>추천하는 보험사</text>
+                <br/><br/>
+                <text className="text">주행거리로 추천하는 보험사</text>
+                <br/><br/>
+                <text>추천하는 보험사</text>
                 <br/><br/>
                 <text className="text">종합적으로 추천하는 보험사</text>
                 <br/><br/>
