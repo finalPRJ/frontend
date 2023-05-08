@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import palette from "../../lib/styles/palette";
+import { useState } from "react";
 
 const SearchBoxBlock = styled.div`
     width: 1280px;
@@ -50,12 +51,36 @@ const SearchForm = styled.form`
     }
 `;
 
-const SearchBox = () => {
+const SearchBox = ({handleChangeFilters}) => {
+    const[searchKeyword,setSearchKeyword] = useState('');
+    
+    const handleInputChange = (e) => {
+        setSearchKeyword(e.target.value)
+    }
+
     return (
         <SearchBoxBlock>
             <SearchForm>
-                <input placeholder="검색어를 입력하세요"/>
-                <button type="submit">검색</button>
+                <input 
+                    placeholder="검색어를 입력하세요"
+                    value={searchKeyword}
+                    onChange={handleInputChange}
+                />
+                <button 
+                    type="button" 
+                    onClick={() => handleChangeFilters({
+                    legion: '',
+                    platform: '',
+                    brand: '',
+                    ctype: '',
+                    otype: '',
+                    minkm: '최소',
+                    maxkm: '최대',
+                    minyear: '최소',
+                    maxyear: '최대',
+                    search: searchKeyword
+                    })}
+                >검색</button>
             </SearchForm>
         </SearchBoxBlock>
     )

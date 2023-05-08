@@ -23,30 +23,49 @@ export const listCars = createAction(
 );
 
 // 액션 생성자 함수 정의
-export const changeCarFilters = createAction(CHANGE_CAR_FILTERS, ({legion,platform}) => ({legion,platform}));
+export const changeCarFilters = createAction(CHANGE_CAR_FILTERS, ({legion,platform,brand,ctype,otype,minkm,maxkm,minyear,maxyear,search,page}) => ({legion,platform,brand,ctype,otype,minkm,maxkm,minyear,maxyear,search,page}));
 
 //요청에 조건문을 넣어줘야해서 따로 만들음
 export function* carSaga() {
-  const { legion, platform } = yield select(state => state.car.filters);
+  const { legion, platform , brand, ctype, otype, minkm , maxkm, minyear, maxyear, search, page} = yield select(state => state.car.filters);
 
   // 원래 요청하던 carList 함수 호출
   let apiFunction = carList.carList;
-  let apiParams = {};
+  // 쿼리 파라미터를 담을 객체 생성
+  let params = new URLSearchParams();
 
   if (legion !== '') {
-    // legion이 '' 아니라면 type='legion'인 요청을 하도록 수정
-    apiParams = { type: legion };
-    console.log(`legion = ${legion}`)
+    params.append('type', legion);
   }
   if (platform !== '') {
-    // platform이 '' 아니라면 type='platform'인 요청을 하도록 수정
-    apiParams = { ...apiParams, type: platform}
+    params.append('type', platform);
   }
+  if (brand !== '') {
+    params.append('type', brand);
+  }
+  if (ctype !== '') {
+    params.append('type', ctype);
+  }
+  if (otype !== '') {
+    params.append('type', otype);
+  }
+  if (minkm !== '최소' || maxkm !== '최대') {
+    params.append('ktype',`${minkm},${maxkm}`);
+  }
+  if (minyear !== '최소' || maxyear !== '최대') {
+    params.append('ytype',`${minyear},${maxyear}`);
+  }
+  if (search !== '') {
+    params.append('search',search);
+  }
+  params.append('page',`${page}`);
+
+  console.log(page);
 
   yield put(startLoading(FETCH_CARS));
 
   try {
-    const cars = yield call(apiFunction, apiParams);
+    const cars = yield call(apiFunction, params);
     console.log('car상태: ',cars);
     yield put({
       type: FETCH_CARS_SUCCESS,
@@ -76,7 +95,16 @@ const initialState = {
   error: null,
   filters: {
     legion: '',
-    platform: ''
+    platform: '',
+    brand: '',
+    ctype: '',
+    otype: '',
+    minkm: '최소',
+    maxkm: '최대',
+    minyear: '최소',
+    maxyear: '최대',
+    search: '',
+    page:1
   }
 };
 
@@ -117,12 +145,22 @@ const car = handleActions(
         ...state.filters,
         legion: action.payload.legion,
         platform: action.payload.platform,
+        brand: action.payload.brand,
+        ctype: action.payload.ctype,
+        otype: action.payload.otype,
+        minkm: action.payload.minkm,
+        maxkm: action.payload.maxkm,
+        minyear: action.payload.minyear,
+        maxyear: action.payload.maxyear,
+        search: action.payload.search,
+        page: action.payload.page
       },
       error: null,
     }),
   },
   initialState
 );
+
 
 export default car;
 

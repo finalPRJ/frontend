@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { changeCarFilters, listCars } from "../../modules/car";
 import Carsearch from "../../components/carsearch/Carsearch";
+import SearchBox from "../../components/common/SearchBox";
 
 
 const Carsearchcontainer = () => {
@@ -12,20 +13,32 @@ const Carsearchcontainer = () => {
     }));
 
     const handleChangeFilters = (filterObj) => {
-        const updatedFilters = { ...filters, ...filterObj };
+        const updatedFilters = { ...filters, ...filterObj, page: '1'};
         dispatch(changeCarFilters(updatedFilters));
         dispatch(listCars());
     };
+
+    const handleChangePage = (page) => {
+        const updatedFilters = { ...filters, ...page };
+        dispatch(changeCarFilters(updatedFilters));
+        dispatch(listCars());
+    }
 
     useEffect(() => {
         dispatch(listCars());
     },[dispatch])
 
     return (
-        <Carsearch 
-        cars={cars}
-        handleChangeFilters={handleChangeFilters}
-        />
+        <div>
+            <SearchBox
+            handleChangeFilters={handleChangeFilters}
+            />
+            <Carsearch 
+            cars={cars}
+            handleChangeFilters={handleChangeFilters}
+            handleChangePage={handleChangePage}
+            />
+        </div>
     )
 }
 

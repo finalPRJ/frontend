@@ -83,10 +83,10 @@ const Header = ({ user, onLogout }) => {
           <div className='menu'>
             <Menu>
                 <li className='text-menu'><a href='/carsearch' className='text'>차량검색</a></li>
-                <li className='text-menu'><a href='login' className='text'>차량추천</a></li>
-                <li className='text-menu'><a href='login' className='text'>리콜분석</a></li>
+                <li className='text-menu'><a href='/login' className='text'>차량추천</a></li>
+                <li className='text-menu'><a href='/login' className='text'>리콜분석</a></li>
                 <li className='text-menu'><a href='/Information' className='text'>자동차정보</a></li>
-                <li className='text-menu'><a href='login' className='text'>리스</a></li>
+                <li className='text-menu'><a href='/login' className='text'>리스</a></li>
             </Menu>
           </div>
           {user ? (
@@ -96,7 +96,7 @@ const Header = ({ user, onLogout }) => {
             </div>
           ) : (
             <div className="right">
-              <Button to="login">로그인</Button>
+              <Button to="/login">로그인</Button>
             </div>
           )}
         </Wrapper>
