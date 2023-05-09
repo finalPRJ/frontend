@@ -58,6 +58,25 @@ const SearchBox = ({handleChangeFilters}) => {
         setSearchKeyword(e.target.value)
     }
 
+    const handleOnKeyPress = e => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleChangeFilters({
+                legion: '',
+                platform: '',
+                brand: '',
+                ctype: '',
+                otype: '',
+                minkm: '최소',
+                maxkm: '최대',
+                minyear: '최소',
+                maxyear: '최대',
+                search: searchKeyword
+            })
+            setSearchKeyword('');
+        }
+      };
+
     return (
         <SearchBoxBlock>
             <SearchForm>
@@ -65,6 +84,7 @@ const SearchBox = ({handleChangeFilters}) => {
                     placeholder="검색어를 입력하세요"
                     value={searchKeyword}
                     onChange={handleInputChange}
+                    onKeyPress={handleOnKeyPress}
                 />
                 <button 
                     type="button" 
