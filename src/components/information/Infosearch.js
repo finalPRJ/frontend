@@ -22,6 +22,14 @@ import Sale from "./carinsurance/sale";             // 자동차 할인 보험 �
 import Newcar from "./carinsurance/newcar";         // 자동차 신차 보험 페이지
 import Oldcar from "./carinsurance/oldcar";         // 자동차 중고차 보험 페이지
 
+// 자동차 옵션 페이지들
+import External from "./options/External";
+import Internal from "./options/Internal";
+import Safe2 from "./options/Safe";
+import Conven from "./options/Conven";
+import Multi from "./options/Multi";
+
+
 const InfosearchBlock = styled.div`
     width: 100%;
 `
@@ -36,7 +44,7 @@ const InfoSearchContent = styled.div`
         width: 280px;
         float: left;
         box-sizing: border-box;
-        background: pink;
+        background: white;
     }
     .contentBlock {
         display: flex;
@@ -45,7 +53,7 @@ const InfoSearchContent = styled.div`
         width: 1000px;
         float: right;
         box-sizing: border-box;
-        background: green;
+        background: white;
     }
 `
 
@@ -78,6 +86,12 @@ const Infosearch = () => {
                     {selectedPage === "newcar" && <Newcar />}
                     {selectedPage === "oldcar" && <Oldcar />}
                     {selectedPage === "choose" && <Choose />}
+
+                    {selectedPage === "external" && <External />}
+                    {selectedPage === "internal" && <Internal />}
+                    {selectedPage === "safe2" && <Safe2 />}
+                    {selectedPage === "conven" && <Conven />}
+                    {selectedPage === "multi" && <Multi />}
                 </div>
             </InfoSearchContent>
         </InfosearchBlock>

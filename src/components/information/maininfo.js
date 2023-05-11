@@ -8,6 +8,9 @@ const MainBlock = styled.div`
     margin-right: 30px;
     margin-bottom: 20px;
     padding: 1rem;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     background-color: white;
     .text {
         font-size: 60px;
@@ -62,6 +65,17 @@ const maininfo = () => {
                         <ul className="ul_list">자동차 할인보험</ul>
                         <ul className="ul_list">자동차 신차보험</ul>
                         <ul className="ul_list">자동차 중고차보험</ul>
+                    <li className="li_list">자동차 옵션</li>
+                        <ul className="ul_list">외장 옵션</ul>
+                        <ul className="ul_list">내장 옵션</ul>
+                        <ul className="ul_list">안전 옵션</ul>
+                        <ul className="ul_list">편의 옵션</ul>
+                        <ul className="ul_list">멀티 옵션</ul>
+                    <li className="li_list">자동차 보험사 추천</li>
+                        <ul className="ul_list">나이, 차종, 주행거리에 따른 보험사를 추천합니다.</ul>
+                        <ul className="ul_list">선택한 나이, 차종, 주행거리에 알맞은 보험사와 종합적으로 가장 많이 
+                        표시된 보험사를 최종적으로 추천합니다.</ul>
+                        <ul className="ul_list">추천하는 보험의 데이터는 다이렉트 보험에 해당합니다.</ul>
                 </ol>
             </div>
         </MainBlock>

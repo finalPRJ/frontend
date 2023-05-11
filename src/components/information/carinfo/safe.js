@@ -8,6 +8,9 @@ const SafeBlock = styled.div`
     margin-right: 30px;
     margin-bottom: 20px;
     padding: 1rem;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     background-color: white;
     .text {
         font-size: 60px;

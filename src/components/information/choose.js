@@ -17,7 +17,7 @@ const ChooseBlock = styled.div`
         border-color: black;
         margin: auto;
         text-align: center;
-        background-color: yellow;
+        background-color: white;
     }
     .div2 {
         margin-top: 80px;
@@ -38,7 +38,7 @@ const ChooseBlock = styled.div`
         border-style: solid;
         border-color: black;
         text-align: center;
-        background-color: yellow;
+        background-color: white;
     }
     .text {
         font-size: 20px;

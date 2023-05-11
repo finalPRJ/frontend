@@ -4,13 +4,13 @@ import { useState } from "react";
 const InfomenuBlock = styled.div`
     width: 100%;
     padding: 1rem;
-    background: red;
+    background: white;
 `
 const InfomenuContent = styled.div`
-    background: yellow;
+    background: white;
     border-radius: 10px;
     width: 100%;
-    height: 37rem;
+    height: 51rem;
     border-color: black;
     .InfoTag {
         display: flex;
@@ -70,6 +70,7 @@ const Infomenu = ({ onClick }) => {
 
     const [activeIndex1, setActiveIndex1] = useState(null);
     const [activeIndex2, setActiveIndex2] = useState(null);
+    const [activeIndex3, setActiveIndex3] = useState(null);
 
     const handleClick1 = (index) => {
         if (index === activeIndex1) {
@@ -87,6 +88,16 @@ const Infomenu = ({ onClick }) => {
           
         } else {
           setActiveIndex2(index);
+          
+        }
+    };
+
+    const handleClick3 = (index) => {
+        if (index === activeIndex3) {
+          setActiveIndex3(null);
+          
+        } else {
+          setActiveIndex3(index);
           
         }
     };
@@ -125,6 +136,21 @@ const Infomenu = ({ onClick }) => {
                         <dd onClick={() => onClick("sale")}>자동차 할인보험(선택)</dd>
                         <dd onClick={() => onClick("newcar")}>자동차 신차보험(선택)</dd>
                         <dd onClick={() => onClick("oldcar")}>자동차 중고차보험(선택)</dd>
+                    </div>
+                </div>
+                <div className="InfoTag">
+                    <div className="text" onClick={() => handleClick3(0)}>
+                        <span>자동차 옵션</span>
+                        <span className={`span ${activeIndex3 === 0 ? "on" : ""}`}>
+                            {activeIndex3 === 0 ? "-" : "+"}
+                        </span>
+                    </div>
+                    <div className={`InfoTagContent ${activeIndex3 === 0 ? "active" : ""}`}>
+                        <dd onClick={() => onClick("external")}>외장 옵션</dd>
+                        <dd onClick={() => onClick("internal")}>내장 옵션</dd>
+                        <dd onClick={() => onClick("safe2")}>안전 옵션</dd>
+                        <dd onClick={() => onClick("conven")}>편의 옵션</dd>
+                        <dd onClick={() => onClick("multi")}>멀티 옵션</dd>
                     </div>
                 </div>
                 <div className="InfoTag" onClick={() => onClick("choose")}>      

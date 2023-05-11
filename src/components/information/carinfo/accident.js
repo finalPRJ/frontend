@@ -7,6 +7,9 @@ const AccidentBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
