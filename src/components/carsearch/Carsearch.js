@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Carcard from "./Carcard";
 import Carmenu from "./Carmenu";
+import Paging from "../common/Paging";
 
 const CarsearchBlock = styled.div`
     width: 100%;
@@ -15,7 +16,6 @@ const CarSearchContent = styled.div`
         width: 280px;
         float: left;
         box-sizing: border-box;
-        background: pink;
     }
     
     .contentBlock {
@@ -25,28 +25,28 @@ const CarSearchContent = styled.div`
         width: 1000px;
         float: right;
         box-sizing: border-box;
-        background: violet;
     }
 `
+/**차량 검색 컴포넌트 */
+const Carsearch = ({cars , handleChangeFilters , handleChangePage}) => {
 
-const Carsearch = () => {
     return (
         <CarsearchBlock>
             <CarSearchContent>
                 <div className="menuBlock">
-                    <Carmenu/>
+                    <Carmenu 
+                        handleChangeFilters={handleChangeFilters}/>
                 </div>
                 <div className="contentBlock">
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
-                    <Carcard/>
+                    {cars.data && cars.data.dtoList && cars.data.dtoList.map((dtoList, index) => (
+                    <Carcard carData={dtoList} key={index}/>
+                ))}
                 </div>
             </CarSearchContent>
+            <Paging 
+                handleChangePage={handleChangePage} 
+                cardata={cars.data}
+            />
         </CarsearchBlock>
     )
 }

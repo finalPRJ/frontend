@@ -1,3 +1,4 @@
 import client from "./client";
 
-export const carinfo = () => client.get('/car/list')
+export const carList = (params) => client.get('/car/list', { params });
+
