@@ -31,3 +31,13 @@ react wordclude 참고 :: https://react-wordcloud.netlify.app/props
 
 npm install recharts --save // rechart 라이브러리
 npm install recharts --legacy-peer-deps // 위 명령어 사용 시 "code ERESOLVE" 에러 났을 때 (원인은 버전 충돌인 듯)
+
+$ ccgit config core.sparseCheckout true // 원하는 파일만 pull
+
+$ npm install react-bootstrap bootstrap
+$ npm install react-bootstrap bootstrap --force
+
+react-js-pagination
+$ npm i react-js-pagination
+$ npm install react-paginate --save --legacy-peer-deps
+
