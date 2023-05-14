@@ -9,6 +9,8 @@ const InfomenuBlock = styled.div`
 const InfomenuContent = styled.div`
     background: white;
     border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
     width: 100%;
     height: 51rem;
     border-color: black;

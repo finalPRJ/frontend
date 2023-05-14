@@ -23,11 +23,11 @@ import Newcar from "./carinsurance/newcar";         // 자동차 신차 보험 �
 import Oldcar from "./carinsurance/oldcar";         // 자동차 중고차 보험 페이지
 
 // 자동차 옵션 페이지들
-import External from "./options/External";
-import Internal from "./options/Internal";
-import Safe2 from "./options/Safe";
-import Conven from "./options/Conven";
-import Multi from "./options/Multi";
+import External from "./options/External";          // 외장 옵션 페이지
+import Internal from "./options/Internal";          // 내장 옵션 페이지
+import Safe2 from "./options/Safe";                 // 안전 옵션 페이지
+import Conven from "./options/Conven";              // 편의 옵션 페이지
+import Multi from "./options/Multi";                // 멀티 옵션 페이지
 
 
 const InfosearchBlock = styled.div`

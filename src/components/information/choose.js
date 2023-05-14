@@ -10,6 +10,9 @@ const ChooseBlock = styled.div`
     margin-bottom: 20px;
     padding: 1rem;
     background-color: white;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
     .div1 {
         border-radius: 10px;
         border-width: 2px;
@@ -358,6 +361,15 @@ const Choose = () => {
             }                           // 배열로 저장하는 이유: 각각의 옵션에서 각기 다른 보험사를 추천할 수 있어서
             else if (count === maxCount) { 
                 recommend.push(name);   // 배열에 이미 보험사 이름이 존재하는 경우 push로 추가
+            }
+        }
+
+        if(recommend.length === 3) {
+            if(AtypeValue < CtypeValue) {
+                recommend = ageRecommend;
+            }
+            else {
+                recommend = carRecommend;
             }
         }
 
