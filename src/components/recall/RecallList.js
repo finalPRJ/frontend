@@ -3,107 +3,73 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const MainBlock = styled.div`
-  background: gray;
-  margin-top: 4%;
-  margin-left: 13%;
-  margin-right: 13%;
-  padding: 2rem;
-  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+`;
 
-  .rank {
-    font-size: 20px;
-    padding: 3rem;
-    margin-left: 10%;
-    margin-right: 14%;
-  }
+const BoxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px;
+`;
 
-  .content {
-    background: #e3f2fd;
-    width: 20%;
-    height: 40;
-    margin-top: 7%;
-    margin-bottom: 5%;
-    margin-left: 30%;
-    margin-right: 30;
-    padding: 0.5rem;
-  }
-
-  .ulList {
-    width: 100%;
-    margin-left: 10%;
-  }
+const Box = styled.div`
+  background: #e3f2fd;
+  width: 300px;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const RecallList = () => {
+  const [top3, setTop3] = useState([]);
+  const [bottom3, setBottom3] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://13.125.169.58:5000/recall/data')
+      .then((response) => {
+        // Assume you have data for top3 and bottom3
+        const top3Data = response.data.slice(0, 3);
+        const bottom3Data = response.data.slice(-3);
+
+        setTop3(top3Data);
+        setBottom3(bottom3Data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <MainBlock>
-      <div>
-        <text className="rank">
-          <b>하위</b> Top3</text>
-        <text className="rank">
-          <b>상위</b> Top3</text>
-      </div>
-      <div className="content">
-        <ul className="ulList">
-          <b>제조사</b>
-        </ul>
-        <ul className="ulList">
-          <b>모델명</b>
-        </ul>
-        <ul className="ulList">
-          <b>제조사</b>
-        </ul>
-        <ul className="ulList">
-          <b>모델명</b>
-        </ul>
-        <ul className="ulList">
-          <b>제조사</b>
-        </ul>
-        <ul className="ulList">
-          <b>모델명</b>
-        </ul>
-      </div>
+      <BoxContainer>
+        <h3>상위 Top 3</h3>
+        {top3.map((item, index) => (
+          <Box key={index}>
+            <div>제조사: {item.brand}</div>
+            <div>모델명: {item.model}</div>
+          </Box>
+        ))}
+      </BoxContainer>
+      <BoxContainer>
+        <h3>하위 Top 3</h3>
+        {bottom3.map((item, index) => (
+          <Box key={index}>
+            <div>제조사: {item.brand}</div>
+            <div>모델명: {item.model}</div>
+          </Box>
+        ))}
+      </BoxContainer>
     </MainBlock>
   );
 };
 
 export default RecallList;
-
-// const [recallData, setRecallData] = useState([]);
-
-// useEffect(() => {
-//   axios
-//     .get('http://13.125.169.58:5000/recall/data')
-//     .then((response) => {
-//       var recallData = [];
-//       // eslint-disable-next-line
-//       response.data.sort(function (a, b) {
-//           recallData.push(a.reasons);
-//       });
-
-//       console.log(recallData)
-// const result = recallData.reduce((accu, curr) => {
-//   accu[curr] = (accu[curr] || 0) + 1;
-//   return accu;
-// }, {});
-
-// const sortedData2 = Object.entries(result)
-//   .sort(function (a, b) {
-//     return b[1] - a[1];
-//   })
-//   .slice(0, 5);
-
-// let obj = {};
-// let list = [];
-
-// for (var i = 0; i < sortedData2.length; i++) {
-//   obj = { name: sortedData2[i][0], value: sortedData2[i][1] };
-//   list.push(obj);
-// }
-
-// setDatas(list);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }, []);

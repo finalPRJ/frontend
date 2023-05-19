@@ -66,6 +66,7 @@ const Chart = () => {
         fill="Black"
         textAnchor={x > cx ? 'start' : 'end'}
         dominantBaseline="central"
+        responsive = {true}
       >
         {`${(percent * 100).toFixed(0)}%`}
       </text>
@@ -87,6 +88,7 @@ const Chart = () => {
                 <Legend layout="vertical" verticalAlign="top" align="top" />
                 <Pie
                   data={datas}
+                  
                   cx="50%"
                   cy="5000%"
                   labelLine={false}

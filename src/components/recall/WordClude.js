@@ -30,7 +30,16 @@ const Wordcloud = () => {
   }
 
   const getRandomColor = () => {
-    const colors = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#B4EAD7', '#C7CEEA'];
+    const colors = [
+      '#FF9AA2',
+      '#FFB7B2',
+      '#FFDAC1',
+      '#B4EAD7',
+      '#82A3AC',
+      '#A9C7C5',
+      '#E2CFC9',
+      '#FFC98B',
+    ];
     return colors[Math.floor(Math.random() * colors.length)];
   };
 
@@ -65,7 +74,15 @@ const Wordcloud = () => {
   }
 
   return (
-    <div style={{ height: '300px', width: '500px' }}>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '300px',
+        width: '500px',
+      }}
+    >
       <RecallWordcloud />
     </div>
   );
