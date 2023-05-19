@@ -1,5 +1,6 @@
 import HeaderContainer from "../containers/common/HeaderContainer";
 import ReactWordcloud from 'react-wordcloud';
+// eslint-disable-next-line
 
 const word = [
     {
@@ -43,8 +44,8 @@ const word = [
         value: 130,
       },
   ]
-   
-  function SimpleWordcloud() {
+  
+  function SimpleWordcloud() {  // eslint-disable-line no-unused-vars
     return <ReactWordcloud words={words} /> // word 반환
   }
 
