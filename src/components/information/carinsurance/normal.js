@@ -46,6 +46,7 @@ const nomal = () => {
         <NomalBlock>
             <div>
                 <text className="text">자동차 일반 보험</text>
+                <hr/>
                 <li className="lili">자동차에 대한 기본적인 보험으로, 
                 자동차를 운전하면서 발생할 수 있는 사고에 대한 보상을 제공합니다.</li>
                 <li className="lili">자동차 일반보험은 일반적으로 다음과 같은 내용을 포함합니다.</li>

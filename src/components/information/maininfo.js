@@ -47,6 +47,7 @@ const maininfo = () => {
             <div>
                 <text className="text">자동차 정보/보험 정보</text>
             </div>
+            <hr/>
             <div className="div">
                 <text className="lili">확인할 수 있는 정보</text>
                 <ol>

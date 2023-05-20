@@ -34,6 +34,7 @@ const multi = () =>{
         <MultiBlock>
             <div>
                 <text className="text">멀티 옵션</text>
+                <hr/>
                 <ol>
                     <li className="li_list">내비게이션</li>
                         <ul className="ul_list">차량 위치와 목적지를 검색하고 길 안내를 해주는 시스템</ul>

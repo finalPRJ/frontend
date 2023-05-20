@@ -34,6 +34,7 @@ const oiltype = () => {
         <OilBlock>
             <div>
                 <text className="text">연료 종류</text>
+                <hr/>
                 <ol>
                     <li className="li_list">
                         휘발유(Gasoline)

@@ -34,6 +34,7 @@ const external = () => {
         <ExternBlock>
             <div>
                 <text className="text">외장 옵션</text>
+                <hr/>
                 <ol>
                     <li className="li_list">썬루프</li>
                         <ul className="ul_list">자동차의 차량 위쪽 부분에 구멍을 

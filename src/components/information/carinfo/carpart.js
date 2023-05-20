@@ -34,6 +34,7 @@ const carpart = () => {
         <CarpartBlock>
             <div>
                 <text className="text">부품</text>
+                <hr/>
                 <ol>
                     <li className="li_list">엔진</li>
                         <ul className="ul_list">차량의 핵심적인 부품으로서 연료를 연소하여 움직임을 만들어냅니다.</ul>

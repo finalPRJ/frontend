@@ -33,6 +33,7 @@ const conven = () => {
         <ConvenBlock>
             <div>
                 <text className="text">편의 옵션</text>
+                <hr/>
                 <ol>
                     <li className="li_list">스마트키</li>
                         <ul className="ul_list">차량 문을 열고 닫거나 시동을 걸 때 열쇠 없이 원격으로 제어 가능한 기능</ul>

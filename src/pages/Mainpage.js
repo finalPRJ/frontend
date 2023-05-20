@@ -1,12 +1,12 @@
 import HeaderContainer from "../containers/common/HeaderContainer";
-import SearchBox from "../components/common/SearchBox";
+import MainView from "../components/common/MainView";
 
 
 const Mainpage = () => {
     return (
         <div>
             <HeaderContainer/>
-            <SearchBox/>
+            <MainView/>
         </div>
     )
 }

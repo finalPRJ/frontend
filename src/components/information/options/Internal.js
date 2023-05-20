@@ -33,6 +33,7 @@ const internal = () => {
         <InternBlock>
             <div>
                 <text className="text">내장 옵션</text>
+                <hr/>
                 <ol>
                     <li className="li_list">열선시트</li>
                         <ul className="ul_list">차량 내부 좌석에 열선이 내장된 옵션으로, 

@@ -34,6 +34,7 @@ const safe = () => {
         <SafeBlock>
             <div>
                 <text className="text">안전 옵션</text>
+                <hr/>
                 <ol>
                     <li className="li_list">후방감지센서</li>
                         <ul className="ul_list">주차할 때 주위의 물체를 감지하여 알려주는 시스템</ul>

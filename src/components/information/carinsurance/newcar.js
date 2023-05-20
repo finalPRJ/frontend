@@ -46,6 +46,7 @@ const newcar = () => {
         <NewBlock>
             <div>
                 <text className="text">자동차 신차 보험</text>
+                <hr/>
                 <ul>
                     <li className="lili">자동차를 산 직후에 가입하는 보험으로, 
                     자동차가 사고나 도난 등의 이유로 손해를 입었을 경우, 

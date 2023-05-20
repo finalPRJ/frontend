@@ -40,6 +40,7 @@ const safe = () => {
         <SafeBlock>
             <div>
                 <text className="text">안전 기능</text>
+                <hr/>
                 <li className="lili">각 제조사들이 갖춘 안전 기능은 제조사별로 차이가 있지만 일부 대표적 안전 기능들을 알아보겠습니다.</li>
                 <ol>
                     <li className="li_list">현대 자동차</li>
