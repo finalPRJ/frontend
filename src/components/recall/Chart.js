@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PieChart, Pie, Legend, Cell, ResponsiveContainer } from 'recharts';
+import ReCallPage from '../../pages/RecallPage';
 
-const Chart = () => {
+const Chart = ({ brand, model }) => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
@@ -10,8 +11,11 @@ const Chart = () => {
       .get('http://13.125.169.58:5000/recall/data') // 리콜 데이터 get
       .then((response) => {
         var reasons = [];
+        // const reasons = response.data
+        // .filter((item) => item.brand === brand && item.model === model)
+        // .map((item) => item.reasons);
         response.data.sort(function (a) {
-          // reasons data 정렬
+          //   // reasons data 정렬
           reasons.push(a.reasons);
         });
 
@@ -28,6 +32,12 @@ const Chart = () => {
           })
           .slice(0, 5);
 
+        // let list = sortedData.slice(0, 5).map(([name, value], index) => ({
+        //   name,
+        //   value,
+        //   color: color[index % color.length],
+        // }));
+
         let obj = {};
         let list = [];
 
@@ -41,7 +51,8 @@ const Chart = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+    // }, [brand, model]);
+  }, [brand, model]);
 
   const color = ['#FF9AA2', '#FFB7B2', '#FFDAC1', '#B4EAD7', '#C7CEEA'];
 
@@ -76,19 +87,21 @@ const Chart = () => {
     <>
       <div>
         <div class="row d-flex justify-content-center text-center">
-          <hr />
+          {/* <hr /> */}
+          {/* <h3>{`${brand} ${model} 리콜 사유`}</h3> */}
+          {/* {datas?.length > 0 ? ( */}
           <div className="col-md-8">
             <ResponsiveContainer
-              width={900}
-              height={900}
-              className="text-center"
+              width={800}
+              height={800}
+              // className="text-center"
             >
-              <PieChart width={400} height={400}>
+              <PieChart width={800} height={400}>
                 <Legend layout="vertical" verticalAlign="top" align="top" />
                 <Pie
                   data={datas}
                   cx="50%"
-                  cy="5000%"
+                  cy="4000%"
                   labelLine={false}
                   label={renderCustomizedLabel}
                   outerRadius={180}
@@ -98,12 +111,16 @@ const Chart = () => {
                   {datas.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
+                      // fill={entry.color}
                       fill={color[index % color.length]}
                     />
                   ))}
                 </Pie>
               </PieChart>
             </ResponsiveContainer>
+            {/* ) : ( */}
+            {/* <p>데이터가 없습니다.</p> */}
+            {/* )} */}
           </div>
         </div>
       </div>

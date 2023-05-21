@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactWordcloud from 'react-wordcloud';
+import ReCallPage from '../../pages/RecallPage';
 
 const Wordcloud = () => {
   const [recall, setRecall] = useState([]);
 
   useEffect(() => {
+    // const dataUrl = `http://13.125.169.58:5000/recall/wordCloud?carType=${brand(
+    //   brand,
+    // )}`;
+
     axios
       .get(
-        'http://13.125.169.58:5000/recall/wordCloud?carType=비엠더블유코리아(주)',
+        'http://13.125.169.58:5000/recall/wordCloud?carType=비엠더블유코리아(주)'
+        // dataUrl
       )
       .then((response) => {
         const sortedData = response.data
@@ -19,12 +25,12 @@ const Wordcloud = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  // }, [brand]);
+}, []);
 
-  function Wordcloud() {
+  const Wordcloud = () => {
     return (
-      // word(text) 반환
-      <ReactWordcloud words={recall.map((item) => ({ text: item.text }))} />
+      <ReactWordcloud words={recall.map((item) => ({ text: item.text }))} /> // word(text) 반환
     );
   }
 
@@ -61,7 +67,7 @@ const Wordcloud = () => {
 
   const size = recall.map((item) => item.value * 1.2); // 크기
 
-  function RecallWordcloud() {
+  const RecallWordcloud = () => {
     return (
       <ReactWordcloud
         callbacks={callbacks}

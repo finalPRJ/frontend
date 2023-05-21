@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import Chart from './Chart';
 
 const MainBlock = styled.div`
   display: flex;
@@ -31,6 +32,7 @@ const Box = styled.div`
 const RecallList = () => {
   const [top3, setTop3] = useState([]); // 리콜 상위 데이터 (3)
   const [bottom3, setBottom3] = useState([]); // 리콜 하위 데이터 (3)
+  const [selectedModel, setSelectedModel] = useState(null); // 선택된 모델
 
   useEffect(() => {
     axios
@@ -84,56 +86,114 @@ const RecallList = () => {
       });
   }, []);
 
+  // const handleModelClick = (brand, model) => {
+  //   setSelectedModel({ brand, model });
+  // };
+
   return (
     <MainBlock>
-      <BoxContainer>
+      <div>
         <h3>상위 Top 3</h3>
-        {(() => {
-          const box1 = [];
-          for (
-            let i = 0;
-            i < Math.min(3, top3[0]?.length, top3[1]?.length);
-            i++
-          ) {
-            box1.push(
-              <Box key={i}>
+        {top3[0]?.length > 0 && top3[1]?.length > 0 ? (
+          top3[0].map((brand, index) => (
+            <BoxContainer
+              key={index}
+              // onClick={() => handleModelClick(brand, top3[1][index])}
+              onClick={() => console.log(`상위 Top 3 버튼 ${index + 1} 클릭됨`)}
+            >
+              <Box>
                 <div>
-                  제조사 <b>{top3[0][i]}</b>
+                  제조사 <b>{brand}</b>
                 </div>
                 <div>
-                  모델명 <b>{top3[1][i]}</b>
+                  모델명 <b>{top3[1][index]}</b>
                 </div>
-              </Box>,
-            );
-          }
-          return box1;
-        })()}
-      </BoxContainer>
-      <BoxContainer>
+              </Box>
+            </BoxContainer>
+          ))
+        ) : (
+          <p>데이터가 없습니다.</p>
+        )}
+      </div>
+      <div>
         <h3>하위 Top 3</h3>
-        {(() => {
-          const box2 = [];
-          for (
-            let i = 0;
-            i < Math.min(3, bottom3[0]?.length, bottom3[1]?.length);
-            i++
-          ) {
-            box2.push(
-              <Box key={i}>
+        {bottom3[0]?.length > 0 && bottom3[1]?.length > 0 ? (
+          bottom3[0].map((brand, index) => (
+            <BoxContainer
+              key={index}
+              // onClick={() => handleModelClick(brand, bottom3[1][index])}
+              onClick={() => console.log(`하위 Top 3 버튼 ${index + 1} 클릭됨`)}
+            >
+              <Box>
                 <div>
-                  제조사 <b>{bottom3[0][i]}</b>
+                  제조사 <b>{brand}</b>
                 </div>
                 <div>
-                  모델명 <b>{bottom3[1][i]}</b>
+                  모델명 <b>{bottom3[1][index]}</b>
                 </div>
-              </Box>,
-            );
-          }
-          return box2;
-        })()}
-      </BoxContainer>
+              </Box>
+            </BoxContainer>
+          ))
+        ) : (
+          <p>데이터가 없습니다.</p>
+        )}
+      </div>
+      {/* {selectedModel && ( */}
+      {/* <Chart brand={selectedModel.brand} model={selectedModel.model} /> */}
+      {/* )} */}
     </MainBlock>
   );
 };
 
 export default RecallList;
+
+//   return (
+//     <MainBlock>
+//       <BoxContainer onClick={() => console.log('Button 1 clicked')}>
+//         <h3>상위 Top 3</h3>
+//         {(() => {
+//           const box1 = [];
+//           for (
+//             let i = 0;
+//             i < Math.min(3, top3[0]?.length, top3[1]?.length);
+//             i++
+//           ) {
+//             box1.push(
+//               <Box key={i}>
+//                 <div>
+//                   제조사 <b>{top3[0][i]}</b>
+//                 </div>
+//                 <div>
+//                   모델명 <b>{top3[1][i]}</b>
+//                 </div>
+//               </Box>,
+//             );
+//           }
+//           return box1;
+//         })()}
+//       </BoxContainer>
+//       <BoxContainer onClick={() => console.log('Button 2 clicked')}>
+//         <h3>하위 Top 3</h3>
+//         {(() => {
+//           const box2 = [];
+//           for (
+//             let i = 0;
+//             i < Math.min(3, bottom3[0]?.length, bottom3[1]?.length);
+//             i++
+//           ) {
+//             box2.push(
+//               <Box key={i}>
+//                 <div>
+//                   제조사 <b>{bottom3[0][i]}</b>
+//                 </div>
+//                 <div>
+//                   모델명 <b>{bottom3[1][i]}</b>
+//                 </div>
+//               </Box>,
+//             );
+//           }
+//           return box2;
+//         })()}
+//       </BoxContainer>
+//     </MainBlock>
+//   );
