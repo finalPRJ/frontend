@@ -73,7 +73,7 @@ const write = handleActions(
         [category]: updatedOptions, // 업데이트된 옵션 배열로 해당 카테고리의 상태를 업데이트
       }
     },
-    [WRITE_POST]: (state, { payload}) => ({
+    [WRITE_POST]: (state, { payload }) => ({
       ...state,
       // payload에서 필요한 파라미터 추출
       writerId: payload.writerId,

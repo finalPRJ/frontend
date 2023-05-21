@@ -91,7 +91,7 @@ const Header = ({ user, onLogout }) => {
           </div>
           {user ? (
             <div className='right'>
-              <UserInfo>{user.username}</UserInfo>
+              <UserInfo>{user.name}</UserInfo>
               <Button onClick={onLogout}>로그아웃</Button>
             </div>
           ) : (

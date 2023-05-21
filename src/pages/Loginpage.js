@@ -1,11 +1,8 @@
-import AuthTemplate from "../components/auth/AuthTemplate";
-import LoginForm from "../containers/auth/LoginForm";
+import Login from "../components/auth/Login";
 
 const LoginPage = () => {
     return (
-        <AuthTemplate>
-            <LoginForm/>
-        </AuthTemplate>
+        <Login/>
     )
 }
 

@@ -1,22 +1,21 @@
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
-import auth, { authSaga } from './auth';
 import loading from './loading';
-import user, { userSaga } from './user';
+import user, {userSaga} from './user';
 import car, { carsearchSaga } from './car';
 import write, { writeSaga } from './write';
+import auth from './auth';
 
 const rootReducer = combineReducers({
-  auth,
   loading,
   user,
   car,
   write,
-  
+  auth,
 });
 
 export function* rootSaga() {
-  yield all([authSaga(),userSaga(),carsearchSaga(),writeSaga()]);
+  yield all([userSaga(),carsearchSaga(),writeSaga()]);
 }
 
 export default rootReducer;

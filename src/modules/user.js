@@ -1,71 +1,141 @@
+import { takeLatest } from 'redux-saga/effects';
 import { createAction, handleActions } from 'redux-actions';
-import { takeLatest, call} from 'redux-saga/effects';
-import * as authAPI from '../lib/api/auth';
-import createRequestSaga, {
-  createRequestActionTypes,
-} from '../lib/createRequestSaga';
+import { getCurrentUser } from '../lib/APIUtils';
+import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
+import { ACCESS_TOKEN } from '../lib/api/OAuth';
+import { finishLoading, startLoading } from './loading';
+import { call, put } from 'redux-saga/effects';
+import produce from 'immer';
+import * as userAPI from '../lib/api/user';
+
+const [FETCH_CURRENT_USER,FETCH_CURRENT_USER_SUCCESS,FETCH_CURRENT_USER_FAILURE] = createRequestActionTypes(
+  'user/FETCH_CURRENT_USER'
+);
+
+const [SUBMIT_USER_INFO,SUBMIT_USER_INFO_SUCCESS,SUBMIT_USER_INFO_FAILURE] = createRequestActionTypes(
+  'user/SUBMIT_USER_INFO'
+)
 
 const TEMP_SET_USER = 'user/TEMP_SET_USER'; // 새로고침 이후 임시 로그인 처리
-// 회원 정보 확인
-const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] = createRequestActionTypes(
-  'user/CHECK',
-);
 const LOGOUT = 'user/LOGOUT';
+const CHANGE_FIELD = 'user/CHANGE_FIELD';
 
 export const tempSetUser = createAction(TEMP_SET_USER, user => user);
-export const check = createAction(CHECK);
+export const check = createAction(FETCH_CURRENT_USER);
 export const logout = createAction(LOGOUT);
+export const submitUserInfo = createAction(SUBMIT_USER_INFO,data => data);
+export const changeField = createAction(
+  CHANGE_FIELD,
+  ({ key, value }) => ({
+    key, // sex,year
+    value, //실제 바꾸려는 값
+  })
+)
 
-const checkSaga = createRequestSaga(CHECK, authAPI.check);
+export const submitUserInfoSaga = createRequestSaga(SUBMIT_USER_INFO,userAPI.userinfo)
 
-function checkFailureSaga() {
+
+export const checkSaga = function* () {
+  yield put(startLoading(FETCH_CURRENT_USER)); // 로딩 시작
   try {
-    localStorage.removeItem('user'); // localStorage에서 user를 제거
+    const response = yield call(getCurrentUser);
+    console.log(response);
+    yield put({
+      type: FETCH_CURRENT_USER_SUCCESS,
+      payload: response,
+    });
   } catch (e) {
-    console.log('localhost is not working');
+    yield put({
+      type: FETCH_CURRENT_USER_FAILURE,
+      payload: e,
+      error: true,
+    });
   }
-}
+  yield put(finishLoading(FETCH_CURRENT_USER)); // 로딩 끝
+};
 
-function* logoutSaga() {
+
+
+function logoutSaga() {
   try {
-    yield call(authAPI.logout); // logout API 호출
-    localStorage.removeItem('user'); // localStorage에서 user를 제거
+    localStorage.removeItem(ACCESS_TOKEN); // localStorage에서 user를 제거
   } catch (e) {
     console.log(e);
   }
 }
 
+
+// Redux Saga watcher 함수
 export function* userSaga() {
-  yield takeLatest(CHECK, checkSaga);
-  yield takeLatest(CHECK_FAILURE, checkFailureSaga);
-  yield takeLatest(LOGOUT, logoutSaga);
+    yield takeLatest(FETCH_CURRENT_USER, checkSaga);
+    yield takeLatest(FETCH_CURRENT_USER_FAILURE,checkFailureSaga);
+    yield takeLatest(LOGOUT,logoutSaga);
+    yield takeLatest(SUBMIT_USER_INFO,submitUserInfoSaga);
+  }
+  
+function checkFailureSaga() {
+    try {
+        localStorage.removeItem(ACCESS_TOKEN);
+    } catch (e) {
+        console.log('localhost is not working');
+    }
 }
 
+
+// 초기 상태 정의
 const initialState = {
-  user: "user1",
-  checkError: null,
+  currentUser: null,
+  authenticated: false,
+  error: null,
+  userinfo:{
+    sex: '',
+    year: ''
+  },
 };
 
-export default handleActions(
+// Redux reducer 함수 정의
+const user = handleActions(
   {
-    [TEMP_SET_USER]: (state, { payload: user }) => ({
+    [FETCH_CURRENT_USER]: (state) => ({
       ...state,
-      user,
+      error: null,
     }),
-    [CHECK_SUCCESS]: (state, { payload: user }) => ({
+    [FETCH_CURRENT_USER_SUCCESS]: (state, action) => ({
       ...state,
-      user,
-      checkError: null,
+      currentUser: action.payload,
+      authenticated: true,
+      error: null,
     }),
-    [CHECK_FAILURE]: (state, { payload: error }) => ({
+    [FETCH_CURRENT_USER_FAILURE]: (state, action) => ({
       ...state,
-      user: null,
-      checkError: error,
+      currentUser: null,
+      authenticated: false,
+      error: action.payload,
     }),
-    [LOGOUT]: state => ({
+    [LOGOUT]: (state) => ({
       ...state,
-      user: null,
+      currentUser: null,
+      authenticated: false,
+    }),
+    [CHANGE_FIELD]: (state, { payload: {key,value }}) =>
+      produce(state, draft => {
+        draft.userinfo[key] = value;
+    }),
+    [SUBMIT_USER_INFO_SUCCESS]: (state, { payload }) => ({
+      ...state,
+      currentUser: payload,
+      authenticated: true,
+      error: null,
+    }),
+    [SUBMIT_USER_INFO_FAILURE]: (state, { payload }) => ({
+      ...state,
+      currentUser: null,
+      authenticated: false,
+      error: payload,
     }),
   },
-  initialState,
+  initialState
 );
+
+export default user;
+

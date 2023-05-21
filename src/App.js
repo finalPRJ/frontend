@@ -7,7 +7,8 @@ import Mainpage from "./pages/Mainpage";
 import CarSearchpage from "./pages/CarSearchpage";
 import Information from "./pages/Information";
 import BoardViewPage from "./pages/BoardViewPage";
-
+import OAuth2RedirectHandlerPage from "./components/auth/OAuth2RedirectHandler";
+import UserinfoPage from "./pages/UserinfoPage";
 
 
 const App = () => {
@@ -21,6 +22,8 @@ const App = () => {
       <Route path="/write" element={<WritePage/>}/>
       <Route path="/Information" element={<Information/>}/>
       <Route path="/board/view/*" element={<BoardViewPage/>}/>
+      <Route path="/oauth2/redirect" element={<OAuth2RedirectHandlerPage/>}/>
+      <Route path="/userinfo" element={<UserinfoPage/>}/>
     </Routes>
   );
 }
