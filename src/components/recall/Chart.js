@@ -13,7 +13,6 @@ const Chart = () => {
         response.data.sort(function (a) {
           // reasons data 정렬
           reasons.push(a.reasons);
-          // console.log(reasons);
         });
 
         // reduce :: 배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
@@ -66,7 +65,7 @@ const Chart = () => {
         fill="Black"
         textAnchor={x > cx ? 'start' : 'end'}
         dominantBaseline="central"
-        responsive = {true}
+        responsive={true}
       >
         {`${(percent * 100).toFixed(0)}%`}
       </text>
@@ -88,7 +87,6 @@ const Chart = () => {
                 <Legend layout="vertical" verticalAlign="top" align="top" />
                 <Pie
                   data={datas}
-                  
                   cx="50%"
                   cy="5000%"
                   labelLine={false}

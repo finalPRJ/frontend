@@ -15,7 +15,6 @@ const Wordcloud = () => {
           .sort((a, b) => b.value - a.value)
           .slice(0, 100);
         setRecall(sortedData);
-        console.log(sortedData);
       })
       .catch((error) => {
         console.log(error);
