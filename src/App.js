@@ -8,6 +8,7 @@ import Mainpage from "./pages/Mainpage";
 import CarSearchpage from "./pages/CarSearchpage";
 import Information from "./pages/Information";
 import BoardViewPage from "./pages/BoardViewPage";
+import ReadPage from "./pages/ReadPage";
 
 
 const App = () => {
@@ -21,6 +22,9 @@ const App = () => {
       <Route path="/write" element={<WritePage/>}/>
       <Route path="/Information" element={<Information/>}/>
       <Route path="/board/view/*" element={<BoardViewPage/>}/>
+      <Route path="/board/register" />
+      <Route path="/board/read" element={<ReadPage/>}/>
+      <Route path="/board/modify" />
       <Route path="/@:username">
         <Route index element={<PostListPage/>}/>
         <Route path=":postId" element={<PostPage/>}/>

@@ -49,10 +49,10 @@ const View = styled.div`
 const Text1 = styled.div`
     user-select: none;
     position: absolute;
-    top: 30%;
+    top: 20%;
     width: 300px;
     transform: translateY(-50%);
-    left: 80px;
+    left: 70px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -63,7 +63,7 @@ const Text1 = styled.div`
 const Text2 = styled.div`
     user-select: none;
     position: absolute;
-    top: 25%;
+    top: 20%;
     width: 330px;
     transform: translateY(-50%);
     left: 40px;
@@ -77,7 +77,7 @@ const Text2 = styled.div`
 const Text3 = styled.div`
     user-select: none;
     position: absolute;
-    top: 25%;
+    top: 20%;
     width: 320px;
     transform: translateY(-50%);
     left: 40px;
@@ -91,10 +91,10 @@ const Text3 = styled.div`
 const Text4 = styled.div`
     user-select: none;
     position: absolute;
-    top: 40%;
+    top: 20%;
     width: 300px;
     transform: translateY(-50%);
-    left: 40px;
+    left: 30px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -107,7 +107,7 @@ const Text5 = styled.div`
     top: 20%;
     width: 400px;
     transform: translateY(-50%);
-    left: 40px;
+    left: 10px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -178,7 +178,7 @@ const Button5 = styled.div`
     top: 90%;
     width: 200px;
     transform: translateY(-50%);
-    left: 90px;
+    left: 120px;
     z-index: 10;
     border-radius: 20px;
     color: white;
@@ -191,35 +191,35 @@ const Button5 = styled.div`
 const MainView = () => {
     return(
         <View>
-            <Carousel showThumbs={false} autoPlay infiniteLoop interval={4000}>
+            <Carousel showThumbs={false} autoPlay infiniteLoop interval={3500}>
             <div className="div">
                 <a href="http://localhost:3000/carsearch"> 
                     <img src={Search} alt="Search" />
-                    <Text1>중고차 옵션 검색 서비스를 통해 꿈에 그리던 차량을 더욱 빠르게 찾아보세요!</Text1>
+                    <Text1>차량 검색 서비스</Text1>
                     <Button1>자세히 살펴보기</Button1>
                 </a>
             </div>
             <div className="div">
                 <img src={Recommend} alt="Recommend" />
-                <Text2>중고차 구매에 어려움을 겪고 계신가요? 이제는 중고차 추천 서비스를 통해 당신에게 딱 맞는 차량을 찾아드립니다.</Text2>
+                <Text2>차량 추천 서비스</Text2>
                 <Button2>자세히 살펴보기</Button2>
             </div>
             <div className="div"> 
                 <img src={Recall} alt="Recall" />
-                <Text3>차량 안전을 최우선으로 생각하시나요? 이제는 리콜 정보 서비스를 통해 중요한 차량 리콜 정보를 손쉽게 확인할 수 있습니다.</Text3>
+                <Text3>리콜 정보 서비스</Text3>
                 <Button3>자세히 살펴보기</Button3>
             </div>
             <div className="div">
                 <a href="http://localhost:3000/Information"> 
-                <img src={Info} alt="Info" />
-                <Text4>차량 정보와 보험, 옵션 등 차량과 관련된 정보를 얻기 어려우신가요? 이제는 차량 정보 서비스를 통해 필요한 모든 정보를 손쉽게 찾아보세요.</Text4>
-                <Button4>자세히 살펴보기</Button4>
+                    <img src={Info} alt="Info" />
+                    <Text4>자동차 정보 서비스</Text4>
+                    <Button4>자세히 살펴보기</Button4>
                 </a>
             </div>
             <div className="div">
                 <a href="http://localhost:3000/board/view/*">
                     <img src={Lease} alt="Lease" />
-                    <Text5>차량 리스에 어려움을 겪고 계신가요? 이제는 역경매 방식의 리스 게시판을 통해 최적의 리스 계약을 더욱 쉽게 체결할 수 있습니다.</Text5>
+                    <Text5>리스 서비스</Text5>
                     <Button5>자세히 살펴보기</Button5>
                 </a>
             </div>
