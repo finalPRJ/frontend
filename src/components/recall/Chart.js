@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PieChart, Pie, Legend, Cell, ResponsiveContainer } from 'recharts';
-import ReCallPage from '../../pages/RecallPage';
 
 const Chart = ({ brand, model }) => {
   const [datas, setDatas] = useState([]);

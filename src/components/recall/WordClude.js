@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactWordcloud from 'react-wordcloud';
-import ReCallPage from '../../pages/RecallPage';
 
-const Wordcloud = () => {
+const WordCloud = ({ brandData }) => {
   const [recall, setRecall] = useState([]);
 
   useEffect(() => {
-    // const dataUrl = `http://13.125.169.58:5000/recall/wordCloud?carType=${brand(
-    //   brand,
-    // )}`;
-
+    const dataUrl = `http://13.125.169.58:5000/recall/wordCloud?carType=${encodeURIComponent(
+      brandData,
+    )}`;
     axios
-      .get(
-        'http://13.125.169.58:5000/recall/wordCloud?carType=비엠더블유코리아(주)'
-        // dataUrl
-      )
+      .get(dataUrl)
       .then((response) => {
         const sortedData = response.data
+          // const sortedData = brandData.brand
           .sort((a, b) => b.value - a.value)
           .slice(0, 100);
         setRecall(sortedData);
@@ -25,14 +21,7 @@ const Wordcloud = () => {
       .catch((error) => {
         console.log(error);
       });
-  // }, [brand]);
-}, []);
-
-  const Wordcloud = () => {
-    return (
-      <ReactWordcloud words={recall.map((item) => ({ text: item.text }))} /> // word(text) 반환
-    );
-  }
+  }, [brandData]);
 
   const getRandomColor = () => {
     const colors = [
@@ -56,8 +45,8 @@ const Wordcloud = () => {
   };
 
   const options = {
-    rotations: 0, // 회전
-    rotationAngles: [0], // 회전 각도
+    rotations: 0,
+    rotationAngles: 0,
     fontSizes: [20, 70],
     fontFamily: 'Arial',
     fontStyle: 'normal',
@@ -65,7 +54,7 @@ const Wordcloud = () => {
     padding: 0,
   };
 
-  const size = recall.map((item) => item.value * 1.2); // 크기
+  const size = recall.map((item) => item.value * 1.2);
 
   const RecallWordcloud = () => {
     return (
@@ -73,10 +62,10 @@ const Wordcloud = () => {
         callbacks={callbacks}
         options={options}
         size={size}
-        words={recall.map((item) => ({ text: item.text, value: item.value }))}
+        words={recall.map((item) => ({ text: item.text, value: item.value }))} // word 반환
       />
     );
-  }
+  };
 
   return (
     <div
@@ -93,4 +82,4 @@ const Wordcloud = () => {
   );
 };
 
-export default Wordcloud;
+export default WordCloud;
