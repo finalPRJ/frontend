@@ -6,7 +6,7 @@ import Search from "../../lib/image/car_search.jpg";
 import Recommend from "../../lib/image/car_recommend.jpg";
 import Recall from "../../lib/image/car_recall.jpg";
 import Info from "../../lib/image/car_info.jpg";
-import Lease from "../../lib/image/car_lease.jpg";
+import Community from "../../lib/image/car_community.jpg";
 
 // 실행 안될 시 npm install react-responsive-carousel 
 
@@ -16,17 +16,43 @@ const View = styled.div`
     margin: 30px auto;
     overflow: hidden;
     .div {
+        border-radius: 10px;
+        border-width: 1px;
+        border-style: solid;
         position: relative;
         margin-bottom: 40px;
         display: flex;
         align-items: center;
         flex-direction: column;
     }
+    .div2 {
+        border-radius: 10px;
+        border-width: 1px;
+        border-style: solid;
+        position: relative;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: #01D9B4;
+    }
+    .div3 {
+        border-radius: 10px;
+        border-width: 1px;
+        border-style: solid;
+        position: relative;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: #C8E8F5;
+    }
     .carousel .slide img {
-        object-fit: fill;
-        width: 1250px;
+        object-fit: contain;
+        width: 890px;
         height: 550px;
-        margin: 0 auto;
+        margin: 0;
+        margin-left: 400px;
         cursor: pointer;
     }
     .carousel .control-dots .dot {
@@ -52,7 +78,7 @@ const Text1 = styled.div`
     top: 20%;
     width: 300px;
     transform: translateY(-50%);
-    left: 70px;
+    left: 89px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -66,7 +92,7 @@ const Text2 = styled.div`
     top: 20%;
     width: 330px;
     transform: translateY(-50%);
-    left: 40px;
+    left: 74px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -80,7 +106,7 @@ const Text3 = styled.div`
     top: 20%;
     width: 320px;
     transform: translateY(-50%);
-    left: 40px;
+    left: 80px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -94,7 +120,7 @@ const Text4 = styled.div`
     top: 20%;
     width: 300px;
     transform: translateY(-50%);
-    left: 30px;
+    left: 90px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -107,7 +133,7 @@ const Text5 = styled.div`
     top: 20%;
     width: 400px;
     transform: translateY(-50%);
-    left: 10px;
+    left: 42px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -115,70 +141,12 @@ const Text5 = styled.div`
     font-weight: bold;
     font-size: 30px;
 `
-const Button1 = styled.div`
-    position: absolute;
-    top: 93%;
-    width: 200px;
-    transform: translateY(-50%);
-    left: 110px;
-    z-index: 10;
-    border-radius: 20px;
-    color: white;
-    background: green;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-`
-
-const Button2 = styled.div`
-    position: absolute;
-    top: 93%;
-    width: 200px;
-    transform: translateY(-50%);
-    left: 110px;
-    z-index: 10;
-    border-radius: 20px;
-    color: white;
-    background: green;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-`
-
-const Button3 = styled.div`
+const Button = styled.div`
     position: absolute;
     top: 90%;
     width: 200px;
     transform: translateY(-50%);
-    left: 90px;
-    z-index: 10;
-    border-radius: 20px;
-    color: white;
-    background: green;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-`
-const Button4 = styled.div`
-    position: absolute;
-    top: 90%;
-    width: 200px;
-    transform: translateY(-50%);
-    left: 90px;
-    z-index: 10;
-    border-radius: 20px;
-    color: white;
-    background: green;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-`
-const Button5 = styled.div`
-    position: absolute;
-    top: 90%;
-    width: 200px;
-    transform: translateY(-50%);
-    left: 120px;
+    left: 140px;
     z-index: 10;
     border-radius: 20px;
     color: white;
@@ -192,35 +160,35 @@ const MainView = () => {
     return(
         <View>
             <Carousel showThumbs={false} autoPlay infiniteLoop interval={3500}>
-            <div className="div">
+            <div className="div2">
                 <a href="http://localhost:3000/carsearch"> 
                     <img src={Search} alt="Search" />
                     <Text1>차량 검색 서비스</Text1>
-                    <Button1>자세히 살펴보기</Button1>
+                    <Button>자세히 살펴보기</Button>
                 </a>
             </div>
             <div className="div">
                 <img src={Recommend} alt="Recommend" />
                 <Text2>차량 추천 서비스</Text2>
-                <Button2>자세히 살펴보기</Button2>
+                <Button>자세히 살펴보기</Button>
             </div>
-            <div className="div"> 
+            <div className="div3"> 
                 <img src={Recall} alt="Recall" />
                 <Text3>리콜 정보 서비스</Text3>
-                <Button3>자세히 살펴보기</Button3>
+                <Button>자세히 살펴보기</Button>
             </div>
             <div className="div">
                 <a href="http://localhost:3000/Information"> 
                     <img src={Info} alt="Info" />
                     <Text4>자동차 정보 서비스</Text4>
-                    <Button4>자세히 살펴보기</Button4>
+                    <Button>자세히 살펴보기</Button>
                 </a>
             </div>
             <div className="div">
                 <a href="http://localhost:3000/board/view/*">
-                    <img src={Lease} alt="Lease" />
-                    <Text5>리스 서비스</Text5>
-                    <Button5>자세히 살펴보기</Button5>
+                    <img src={Community} alt="Community" />
+                    <Text5>커뮤니티 게시판</Text5>
+                    <Button>자세히 살펴보기</Button>
                 </a>
             </div>
             </Carousel>
