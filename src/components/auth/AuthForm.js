@@ -3,6 +3,7 @@ import palette from "../../lib/styles/palette";
 import Button from "../common/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, submitUserInfo } from "../../modules/user";
+import { useNavigate } from "react-router-dom";
 
 const ButtonWithMarginTop = styled(Button)`
     margin-top : 1rem;
@@ -44,6 +45,7 @@ const RadioWrapper = styled.div`
 const AuthForm = () => {
   const currentYear = new Date().getFullYear();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { currentUser, sex, year } = useSelector(({ user }) => ({
     currentUser: user.currentUser,

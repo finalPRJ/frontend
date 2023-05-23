@@ -8,6 +8,7 @@ import { call, put } from 'redux-saga/effects';
 import produce from 'immer';
 import * as userAPI from '../lib/api/user';
 
+
 const [FETCH_CURRENT_USER,FETCH_CURRENT_USER_SUCCESS,FETCH_CURRENT_USER_FAILURE] = createRequestActionTypes(
   'user/FETCH_CURRENT_USER'
 );
