@@ -102,7 +102,7 @@ const BoardContainer = () => {
             <BoardContent>
                 <div className="contentBlock">
                     <div className="div">
-                        <text className="text">리스 게시판</text>
+                        <text className="text">자유 게시판</text>
                         <div className="div2">
                             <BoardComboBox options={OPTIONS} defaultValue="t:"></BoardComboBox>
                             <input className="input"></input>
