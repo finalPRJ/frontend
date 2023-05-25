@@ -75,6 +75,7 @@ const WordCloud = ({ brandData }) => {
         alignItems: 'center',
         height: '300px',
         width: '500px',
+        // margin: 'auto', // 부모 컨테이너 내에서 중앙 정렬을 위함
       }}
     >
       <RecallWordcloud />

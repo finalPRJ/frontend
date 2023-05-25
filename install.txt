@@ -41,3 +41,6 @@ react-js-pagination
 $ npm i react-js-pagination
 $ npm install react-paginate --save --legacy-peer-deps
 
+React-Quill
+$ npm install react-quill
+

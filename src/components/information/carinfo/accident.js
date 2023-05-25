@@ -7,6 +7,9 @@ const AccidentBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -25,6 +28,7 @@ const accident = () => {
     return (
         <AccidentBlock>
             <text className="text">사고기록</text>
+            <hr/>
             <ul>
                 <li className="list">사고 기록은 해당 차량이 사고나 충돌 등의 사고로 인해 수리가 필요한 경우, 그 수리 기록이 남게 됩니다. 
                 이러한 기록은 차량이 이전에 사고를 당했는지 여부를 확인할 수 있는 중요한 정보입니다.</li>

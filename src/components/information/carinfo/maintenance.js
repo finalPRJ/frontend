@@ -8,6 +8,9 @@ const MaintenanceBlock = styled.div`
     margin-right: 30px;
     margin-bottom: 20px;
     padding: 1rem;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     background-color: white;
     .text {
         font-size: 60px;
@@ -52,6 +55,7 @@ const maintenance = () => {
         <MaintenanceBlock>
             <div>
                 <text className="text">유지보수</text>
+                <hr/>
                 <ul>
                     <li className="lili">차량을 운행하면서 필요햔 유지보수와 수리 비용을 의미합니다.</li>
                     <li className="lili">유지보수 비용에는 정기적인 점검 및 교체가 필요한 부품들의 비용, 예를 들면 엔진오일, 

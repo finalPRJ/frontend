@@ -1,17 +1,18 @@
 import styled from "styled-components";
+import palette from "../../lib/styles/palette";
 
 const CarcardBlock = styled.div`
+    border: 1px solid ${palette.gray[4]};
     border-radius: 20px;
     width: 200px;
     height: 20rem;
-    background: blue;
     margin: 1rem;
-    padding: 0.5rem;
     img {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
         margin: 0 auto;
         width: 100%;
         height: 35%;
-        background: yellow;
 
     }
 
@@ -21,12 +22,10 @@ const CardTextForm = styled.div`
     width: 100%;
     height: 65%;
     padding: 0.5rem;
-    background: yellow;
     .name {
         font-size: 18px;
         font-weight: 800;
-        height: 30%;
-        background: white;
+        height: 40%;
     }
     .ex {
         font-size: 12px;
@@ -34,22 +33,23 @@ const CardTextForm = styled.div`
     }
 `
 
-const Carcard = () => {
+const Carcard = ({carData}) => {
     return (
         <CarcardBlock>
-            <img src={require("../../lib/image/sadcat.jpg")} alt="sadcat"/>
+            <a href={`${carData.link}`}><img src={`${carData.img}`} alt="car"/></a>
             <CardTextForm>
                 <div className="name">
-                    카카카<br/>
-                    야야야
+                    <a href={`${carData.link}`}>{carData.model}</a>
                 </div>
                 <hr/>
-                <div>
-                    2020년 <br/>
-                    50,000km | 인천
-                    <br/>  
-                    1,880만원 
-                </div>
+                <a href={`${carData.link}`}>
+                    <div>
+                        {carData.year}년 <br/>
+                        {carData.km} | {carData.region}
+                        <br/>  
+                        {carData.price} 
+                    </div>
+                </a>
             </CardTextForm>
         </CarcardBlock>
     )

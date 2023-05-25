@@ -7,6 +7,9 @@ const GuardBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -43,6 +46,7 @@ const guard = () => {
         <GuardBlock>
             <div>
                 <text className="text">자동차 지키미 보험</text>
+                <hr/>
                 <ul>
                     <li className="lili">보험 가입자가 운전 중에 발생할 수 있는 사고를 예방하고 , 
                     안전한 운전 습관을 유도하기 위해 제공되는 보험 상품</li>

@@ -7,6 +7,9 @@ const SaleBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -43,6 +46,7 @@ const sale = () => {
         <SaleBlock>
             <div>
                 <text className="text">자동차 할인 보험</text>
+                <hr/>
                 <ul>
                     <li className="lili">자동차 운전자들이 보험료를 저렴하게 받을 수 있는 보험입니다.</li>
                     <li className="lili">운전 중 일어날 가능성이 높은 사고에 대한 보상은 기본적으로 제공되며, 

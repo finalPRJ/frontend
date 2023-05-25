@@ -6,8 +6,15 @@ import WordClude from './WordClude';
 const MainBlock = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-start;
   height: 50vh;
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 `;
 
 const BoxContainer = styled.div`
@@ -27,6 +34,15 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const WordCloudContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 500px;
+  margin-top: 130vh;
 `;
 
 const RecallList = () => {
@@ -60,14 +76,14 @@ const RecallList = () => {
         );
 
         let top3 = []; // 리콜 상위 3개 데이터
-        top3[0] = sorted_brand.slice(0, 3);
-        top3[1] = sorted_model.slice(0, 3);
+        top3[0] = sorted_brand.slice(-3);
+        top3[1] = sorted_model.slice(-3);
         console.log(top3[0]);
         console.log(top3[1]);
 
         let bottom3 = []; // 리콜 하위 3개 데이터
-        bottom3[0] = sorted_brand.slice(-3);
-        bottom3[1] = sorted_model.slice(-3);
+        bottom3[0] = sorted_brand.slice(0, 3);
+        bottom3[1] = sorted_model.slice(0, 3);
         console.log(bottom3[0]);
         console.log(bottom3[1]);
 
@@ -89,6 +105,7 @@ const RecallList = () => {
 
   return (
     <MainBlock>
+      <ContentContainer>
       <div>
         <h3>상위 Top 3</h3>
         {top3[0]?.length > 0 && top3[1]?.length > 0 ? ( // 박스를 클릭하면 해당 모델의 정보가 selectedModel 설정
@@ -135,8 +152,11 @@ const RecallList = () => {
           <p>데이터가 없습니다.</p>
         )}
       </div>
+      </ContentContainer>
       {selectedModel && ( // WordClude 컴포넌트에 선택된 모델의 제조사(brand) 정보를 전달 */}
-        <WordClude brandData={selectedModel.brand} />
+        <WordCloudContainer>
+          <WordClude brandData={selectedModel.brand} />
+        </WordCloudContainer>
       )}
     </MainBlock>
   );

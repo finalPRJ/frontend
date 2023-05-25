@@ -3,6 +3,7 @@ import Infomenu from "./Infomenu";
 import { useState } from "react";
 
 import Maininfo from "./maininfo";                  // 자동차/보험 페이지 이동 시 보여질 화면
+import Choose from "./choose";
 
 // 자동차 정보 페이지들
 import Gasmileage from "./carinfo/gasmileage";      // 연비 페이지
@@ -21,6 +22,14 @@ import Sale from "./carinsurance/sale";             // 자동차 할인 보험 �
 import Newcar from "./carinsurance/newcar";         // 자동차 신차 보험 페이지
 import Oldcar from "./carinsurance/oldcar";         // 자동차 중고차 보험 페이지
 
+// 자동차 옵션 페이지들
+import External from "./options/External";          // 외장 옵션 페이지
+import Internal from "./options/Internal";          // 내장 옵션 페이지
+import Safe2 from "./options/Safe";                 // 안전 옵션 페이지
+import Conven from "./options/Conven";              // 편의 옵션 페이지
+import Multi from "./options/Multi";                // 멀티 옵션 페이지
+
+
 const InfosearchBlock = styled.div`
     width: 100%;
 `
@@ -35,7 +44,7 @@ const InfoSearchContent = styled.div`
         width: 280px;
         float: left;
         box-sizing: border-box;
-        background: pink;
+        background: white;
     }
     .contentBlock {
         display: flex;
@@ -44,7 +53,7 @@ const InfoSearchContent = styled.div`
         width: 1000px;
         float: right;
         box-sizing: border-box;
-        background: green;
+        background: white;
     }
 `
 
@@ -76,6 +85,13 @@ const Infosearch = () => {
                     {selectedPage === "sale" && <Sale />}
                     {selectedPage === "newcar" && <Newcar />}
                     {selectedPage === "oldcar" && <Oldcar />}
+                    {selectedPage === "choose" && <Choose />}
+
+                    {selectedPage === "external" && <External />}
+                    {selectedPage === "internal" && <Internal />}
+                    {selectedPage === "safe2" && <Safe2 />}
+                    {selectedPage === "conven" && <Conven />}
+                    {selectedPage === "multi" && <Multi />}
                 </div>
             </InfoSearchContent>
         </InfosearchBlock>
