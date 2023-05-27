@@ -9,6 +9,7 @@ const INITIALIZE = 'write/INITIALIZE'; // 모든 내용 초기화
 const CHANGE_FIELD = 'write/CHANGE_FIELD'; // 특정 key 값 바꾸기
 const [WRITE_POST,WRITE_POST_SUCCESS, WRITE_POST_FAILURE] = createRequestActionTypes('write/WRITE_POST'); // 포스트 작성
 const CHECK_OPTION = 'write/CHECK_OPTION'; // 체크 옵션
+const SET_ORIGINAL_BOARD = 'write/SET_ORIGINAL_BOARD';
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
@@ -20,6 +21,7 @@ export const checkOption = createAction(CHECK_OPTION, ({category,option}) => ({
   category,
   option,
 }));
+export const setOriginalBoard = createAction(SET_ORIGINAL_BOARD, board => board);
 
 // 사가 생성
 const writePostSaga = createRequestSaga(WRITE_POST, (payload) => {
@@ -48,7 +50,8 @@ const initialState = {
   options2:[],
   options3:[],
   options4:[],
-  options5:[]
+  options5:[],
+  originalBoardId: null,
 };
 
 const write = handleActions(
@@ -98,6 +101,19 @@ const write = handleActions(
       ...state,
       postError,
     }),
+    [SET_ORIGINAL_BOARD]: (state, { payload: board }) => ({
+      ...state,
+      writerId: board.writerId,
+      title: board.title,
+      content: board.content,
+      options1: board.options1,
+      options2: board.options2,
+      options3: board.options3,
+      options4: board.options4,
+      options5: board.options5,
+      originalBoardId: board.bno,
+      
+    })
   },
   initialState,
 );

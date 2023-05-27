@@ -60,7 +60,6 @@ export function* carSaga() {
   }
   params.append('page',`${page}`);
 
-  console.log(page);
 
   yield put(startLoading(FETCH_CARS));
 

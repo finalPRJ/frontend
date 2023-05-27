@@ -5,7 +5,7 @@ import { API_BASE_URL } from './OAuth';
 //인문관 baseURL: 'http://192.168.0.242:8070'
 
 const client = axios.create({
-  baseURL: 'http://192.168.1.6:8070'
+  baseURL: 'http://localhost:5000'
 });
 
 /*
