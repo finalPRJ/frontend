@@ -1,15 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/Loginpage';
-import PostListPage from './pages/PostListPage';
 import RegisterPage from './pages/RegisterPage';
 import WritePage from './pages/WritePage';
 import Mainpage from './pages/Mainpage';
 import CarSearchpage from './pages/CarSearchpage';
 import Information from './pages/Information';
 import BoardViewPage from './pages/BoardViewPage';
-// import OAuth2RedirectHandlerPage from './components/auth/OAuth2RedirectHandler';
+import OAuth2RedirectHandlerPage from './components/auth/OAuth2RedirectHandler';
 import UserinfoPage from './pages/UserinfoPage';
-import ReCallPage from './pages/RecallPage';
+import PostListPage from './pages/PostListPage';
 import ReadPage from './pages/ReadPage';
 import PostPage from './pages/PostPage';
 
@@ -19,7 +18,6 @@ const App = () => {
       <Route path="/" element={<Mainpage />} />
       <Route path="/postList" element={<PostListPage />} />
       <Route path="/carsearch" element={<CarSearchpage />} />
-      <Route path="/recall" element={<ReCallPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/write" element={<WritePage />} />
