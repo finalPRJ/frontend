@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Infomenu from './Infomenu';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import Maininfo from './maininfo'; // 자동차/보험 페이지 이동 시 보여질 화면
 import Choose from './choose';
@@ -29,48 +29,25 @@ import Safe2 from './options/Safe'; // 안전 옵션 페이지
 import Conven from './options/Conven'; // 편의 옵션 페이지
 import Multi from './options/Multi'; // 멀티 옵션 페이지
 
-const InfosearchBlock = styled.div`
-  width: 100%;
-`;
-
-const InfoSearchContent = styled.div`
-  width: 1280px;
-  display: flex;
-  margin: auto;
-  margin-top: 60px;
-  padding: 2rem;
-  .menuBlock {
-    width: 280px;
-    float: left;
-    box-sizing: border-box;
-    background: white;
-  }
-  .contentBlock {
-    display: flex;
-    flex-direction: row;
-    flex-flow: wrap;
-    width: 1000px;
-    float: right;
-    box-sizing: border-box;
-    background: white;
-  }
-`;
-
 const Infosearch = () => {
   const [selectedPage, setSelectedPage] = useState('');
+  const ref = useRef(null); // 스크롤할 요소에 대한 Ref 생성
 
   const PageSelect = (pageName) => {
     setSelectedPage(pageName);
+
+    // 스크롤 기능 추가
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
-    <InfosearchBlock>
-      <InfoSearchContent>
-        <div className="box-container">
-          <Infomenu onClick={PageSelect} />
-        </div>
-        <div className="contentBlock">
-          {/* {selectedPage === "" && <Maininfo/>} */}
+    <div>
+      <div className="InfosearchBlock">
+        <Infomenu onClick={PageSelect} />
+        <div className="contentBlock2" ref={ref}>
+          {/* 스크롤 대상 요소에 Ref 적용 */}
           {selectedPage === 'gasmileage' && <Gasmileage />}
           {selectedPage === 'oiltype' && <Oiltype />}
           {selectedPage === 'safe' && <Safe />}
@@ -85,15 +62,14 @@ const Infosearch = () => {
           {selectedPage === 'newcar' && <Newcar />}
           {selectedPage === 'oldcar' && <Oldcar />}
           {selectedPage === 'choose' && <Choose />}
-
           {selectedPage === 'external' && <External />}
           {selectedPage === 'internal' && <Internal />}
           {selectedPage === 'safe2' && <Safe2 />}
           {selectedPage === 'conven' && <Conven />}
           {selectedPage === 'multi' && <Multi />}
         </div>
-      </InfoSearchContent>
-    </InfosearchBlock>
+      </div>
+    </div>
   );
 };
 
