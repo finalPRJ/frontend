@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { changeCarFilters, listCars } from "../../modules/car";
 import Carsearch from "../../components/carsearch/Carsearch";
 import SearchBox from "../../components/common/SearchBox";
+import CarReco from "../../components/carsearch/CarReco";
 
 
 const Carsearchcontainer = () => {
@@ -38,6 +39,11 @@ const Carsearchcontainer = () => {
             handleChangeFilters={handleChangeFilters}
             handleChangePage={handleChangePage}
             />
+            {cars.data && cars.data.response !== null && (
+                <CarReco
+                    carsReco={cars.data.response}
+                />
+            )}
         </div>
     )
 }
