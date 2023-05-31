@@ -42,7 +42,6 @@ const Editor = ({title , content , onChangeField}) => {
       theme: 'snow',
       placeholder: '내용을 작성하세요...',
       modules: {
-        // 더 많은 옵션
         toolbar: [
           [{ header: '1' }, { header: '2' }],
           ['bold', 'italic', 'underline', 'strike'],

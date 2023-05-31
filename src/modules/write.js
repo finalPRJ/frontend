@@ -10,6 +10,9 @@ const CHANGE_FIELD = 'write/CHANGE_FIELD'; // 특정 key 값 바꾸기
 const [WRITE_POST,WRITE_POST_SUCCESS, WRITE_POST_FAILURE] = createRequestActionTypes('write/WRITE_POST'); // 포스트 작성
 const CHECK_OPTION = 'write/CHECK_OPTION'; // 체크 옵션
 const SET_ORIGINAL_BOARD = 'write/SET_ORIGINAL_BOARD';
+const [UPDATE_POST,
+      UPDATE_POST_SUCCESS,
+      UPDATE_POST_FAILURE] = createRequestActionTypes('write/UPDATE_POST');
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
@@ -17,6 +20,7 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
   value,
 }));
 export const writePost = createAction(WRITE_POST, (params) => params);
+export const updatePost = createAction(UPDATE_POST, (params) => params);
 export const checkOption = createAction(CHECK_OPTION, ({category,option}) => ({
   category,
   option,
@@ -37,8 +41,24 @@ const writePostSaga = createRequestSaga(WRITE_POST, (payload) => {
 
   return postsAPI.writePost({ ...rest, ...options }); // 바뀐 문자열로 요청
 });
+
+const updatePostSaga = createRequestSaga(UPDATE_POST, (payload) => {
+  const { options1, options2, options3, options4, options5, ...rest } = payload; // 문자열로 바꿔야하기 때문에 배열을 payload에서 가져옴
+
+  const options = {
+    options1: options1.join(', '),
+    options2: options2.join(', '),
+    options3: options3.join(', '),
+    options4: options4.join(', '),
+    options5: options5.join(', '),
+  }; // 문자열로 변경
+
+  return postsAPI.updatePost({ ...rest, ...options }); // 바뀐 문자열로 요청
+});
+
 export function* writeSaga() {
   yield takeLatest(WRITE_POST, writePostSaga);
+  yield takeLatest(UPDATE_POST, updatePostSaga);
 }
 
 const initialState = {
@@ -79,7 +99,7 @@ const write = handleActions(
     [WRITE_POST]: (state, { payload }) => ({
       ...state,
       // payload에서 필요한 파라미터 추출
-      writerId: payload.writerId,
+      id: payload.id,
       title: payload.title,
       content: payload.content,
       options1: payload.options1,
@@ -112,7 +132,14 @@ const write = handleActions(
       options4: board.options4,
       options5: board.options5,
       originalBoardId: board.bno,
-      
+    }),
+    [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({
+      ...state,
+      post,
+    }),
+    [UPDATE_POST_FAILURE]: (state, { payload: postError }) => ({
+      ...state,
+      postError,
     })
   },
   initialState,

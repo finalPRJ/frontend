@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { readBoard, unloadBoard } from "../../modules/board";
 import { useNavigate } from "../../../node_modules/react-router-dom/dist/index";
 import { setOriginalBoard } from "../../modules/write";
+import { removeBoard } from "../../lib/api/board";
 
 
 const BoardReadContainer = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const location = useLocation();;
+    const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const bno = searchParams.get("bno");
 
@@ -29,6 +30,14 @@ const BoardReadContainer = () => {
       navigate('/write');
     }
 
+    const onRemove = async () => {
+      try {
+        await removeBoard(bno);
+        navigate('/boardlist'); // 게시글 리스트로 이동
+      } catch (e) {
+        console.log(e);
+      }
+    }
 
     useEffect(() => {
         console.log(bno)
@@ -48,6 +57,7 @@ const BoardReadContainer = () => {
           error = {error}
           user = {user}
           onEdit = {onEdit}
+          onRemove = {onRemove}
         />
     )
 };

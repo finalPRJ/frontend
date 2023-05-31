@@ -7,6 +7,7 @@ import write, { writeSaga } from './write';
 import auth from './auth';
 import boards, { boardsSaga } from './boards';
 import board, { boardSaga } from './board';
+import replys, { replysSaga } from './reply';
 
 const rootReducer = combineReducers({
   loading,
@@ -16,6 +17,8 @@ const rootReducer = combineReducers({
   auth,
   boards,
   board,
+  replys,
+
 });
 
 export function* rootSaga() {
@@ -26,6 +29,7 @@ export function* rootSaga() {
       writeSaga(),
       boardsSaga(),
       boardSaga(),
+      replysSaga(),
     ]);
 }
 

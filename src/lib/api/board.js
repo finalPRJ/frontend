@@ -5,3 +5,5 @@ export const listboards = (params) => {
 }
 
 export const readBoard = ({bno}) => client.get(`/board/read?bno=${bno}`);
+
+export const removeBoard = bno => client.post(`/board/remove?bno=${bno}`);
