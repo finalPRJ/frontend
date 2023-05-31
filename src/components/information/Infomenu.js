@@ -8,15 +8,6 @@ const InfomenuBlock = styled.div`
   padding: 1rem;
   background: white;
 `;
-const InfomenuContent = styled.div`
-  background: white;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 1px;
-  width: 100%;
-  height: 51rem;
-  border-color: black;
-`;
 
 const Infomenu = ({ onClick }) => {
   const [activeIndex1, setActiveIndex1] = useState(null);
@@ -49,7 +40,6 @@ const Infomenu = ({ onClick }) => {
 
   return (
     <InfomenuBlock>
-      {/* <InfomenuContent> */}
       <div className="box-container">
         <div className="box-text" onClick={() => handleClick1(0)}>
           자동차 정보
@@ -166,7 +156,6 @@ const Infomenu = ({ onClick }) => {
       <div className="box-container2" onClick={() => onClick('choose')}>
         <text className="box-text2">자동차 보험 추천</text>
       </div>
-      {/* </InfomenuContent> */}
     </InfomenuBlock>
   );
 };

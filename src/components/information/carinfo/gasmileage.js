@@ -1,73 +1,48 @@
-import styled from 'styled-components';
 import '../../Fonts/Font.css';
 import '../../information/information.css';
 
 // 연비
-const GasBlock = styled.div`
-  width: 1920px;
-  margin-top: 20px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  border-width: 1px;
-  border-style: solid;
-  padding: 1rem;
-  background-color: green;
-  .text {
-    font-size: 60px;
-    margin-left: 15px;
-  }
-  .list {
-    font-size: 15px;
-    font-weight: 800;
-    margin: 30px;
-    margin-top: 50px;
-  }
-`;
-
 const gasmileage = () => {
   return (
-    <main-container>
-      <box-container>
-        {/* <GasBlock> */}
-        <div>
-          <text className="text">연비</text>
-          <hr />
-          <ul>
-            <li className="list">
-              연비는 주행한 거리에 대한 연료 소비량을 나타내는 단위입니다.
-              연비는 일반적으로 도심 주행, 고속도로 주행, 평균 주행 등 다양한
-              주건에서 측정됩니다.
-            </li>
-            <li className="list">
-              연비는 다양한 요소에 따라 다릅니다. 예를 들어 차종, 배기량, 엔진
-              형태, 구동 방식, 변속기 종류, 타이어 등이 연비에 영향을 미칩니다.
-              또한 주행 습관, 유지 보수 상태, 주행 조건 등도 연비에 영향을 줄 수
-              있습니다.
-            </li>
-            <li className="list">
-              연비는 도심 주행과 고속도로 주행을 기준으로 나뉩니다.
-            </li>
-            <li className="list">
-              도심 주행 연비: 주행 거리가 짧고 속도가 낮은 도심 지역에서의
-              연비를 의미합니다.
-            </li>
-            <li className="list">
-              고속도로 주행 연비: 고속도로에서의 주행 연비를 의미합니다.
-            </li>
-            <li className="list">
-              연비는 주행 거리당 연료 소비량으로 표시됩니다.
-            </li>
-            <li className="list">
-              예를 들어 10km/L 이라고 한다면, 10km를 주행하는데 1리터의 연료가
-              필요하다는 뜻입니다.
-            </li>
-          </ul>
-        </div>
-        {/* </GasBlock> */}
-      </box-container>
-    </main-container>
+    <div>
+      <text className="contents-text-num">01</text>
+      <text className="contents-text-title">연비</text>
+
+      <ul>
+        <li className="contents-text">
+          연비란? <b>주행한 거리에 대한 연료 소비량</b>을 나타내는 단위
+          <br />
+          연비는 일반적으로 <b>도심 주행, 고속도로 주행, 평균 주행</b> 등 다양한
+          조건에서 측정됩니다.
+        </li>
+        <li className="contents-text">
+          <br />
+          <b>연비에 영향을 주는 요소</b>는 어떤 것들이 있을까?
+          <br />
+          차종, 배기량, 엔진 형태, 구동 방식, 변속기 종류, 타이어, 주행 습관,
+          유지 보수 상태, 주행 조건 등
+        </li>
+        <li className="contents-text">
+          <br />
+          연비는 <b>도심 주행</b>과 <b>고속도로 주행</b>을 기준으로 나뉩니다.
+        </li>
+        <li className="contents-text">
+          * 도심 주행 연비: <b>주행 거리가 짧고 속도가 낮은</b> 도심 지역에서의
+          주행 연비
+        </li>
+        <li className="contents-text">
+          * 고속도로 주행 연비: <b>고속도로</b>에서의 주행 연비
+        </li>
+        <li className="contents-text">
+          <br />
+          연비는 <b>주행 거리당 연료 소비량</b>으로 <b>표시</b>됩니다.
+        </li>
+        <li className="contents-text">
+          예를 들어 주행 거리가 10km/L일 때, 10km를 주행하는데 1L의 연료가
+          필요하다는 의미입니다.
+        </li>
+      </ul>
+    </div>
   );
 };
 

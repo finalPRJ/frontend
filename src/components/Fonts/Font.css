@@ -18,3 +18,10 @@
   font-style: normal;
   src: url('./KoPubWorld\ Dotum\ Bold.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'Bold2';
+  font-style: Bold;
+  font-weight: 200;
+  src: url('./KoPubWorld\ Dotum\ Bold.woff') format('woff');
+}

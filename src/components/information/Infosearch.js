@@ -1,8 +1,6 @@
-import styled from 'styled-components';
 import Infomenu from './Infomenu';
 import { useState, useRef } from 'react';
 
-import Maininfo from './maininfo'; // 자동차/보험 페이지 이동 시 보여질 화면
 import Choose from './choose';
 
 // 자동차 정보 페이지들
@@ -44,30 +42,28 @@ const Infosearch = () => {
 
   return (
     <div>
-      <div className="InfosearchBlock">
-        <Infomenu onClick={PageSelect} />
-        <div className="contentBlock2" ref={ref}>
-          {/* 스크롤 대상 요소에 Ref 적용 */}
-          {selectedPage === 'gasmileage' && <Gasmileage />}
-          {selectedPage === 'oiltype' && <Oiltype />}
-          {selectedPage === 'safe' && <Safe />}
-          {selectedPage === 'maintenance' && <Maintenance />}
-          {selectedPage === 'accident' && <Accident />}
-          {selectedPage === 'carpart' && <Carpart />}
-          {selectedPage === 'essential' && <Essential />}
-          {selectedPage === 'synthesis' && <Synthesis />}
-          {selectedPage === 'guard' && <Guard />}
-          {selectedPage === 'nomal' && <Nomal />}
-          {selectedPage === 'sale' && <Sale />}
-          {selectedPage === 'newcar' && <Newcar />}
-          {selectedPage === 'oldcar' && <Oldcar />}
-          {selectedPage === 'choose' && <Choose />}
-          {selectedPage === 'external' && <External />}
-          {selectedPage === 'internal' && <Internal />}
-          {selectedPage === 'safe2' && <Safe2 />}
-          {selectedPage === 'conven' && <Conven />}
-          {selectedPage === 'multi' && <Multi />}
-        </div>
+      <Infomenu onClick={PageSelect} />
+      <div className="contents-block" ref={ref}>
+        {/* 스크롤 대상 요소에 Ref 적용 */}
+        {selectedPage === 'gasmileage' && <Gasmileage />}
+        {selectedPage === 'oiltype' && <Oiltype />}
+        {selectedPage === 'safe' && <Safe />}
+        {selectedPage === 'maintenance' && <Maintenance />}
+        {selectedPage === 'accident' && <Accident />}
+        {selectedPage === 'carpart' && <Carpart />}
+        {selectedPage === 'essential' && <Essential />}
+        {selectedPage === 'synthesis' && <Synthesis />}
+        {selectedPage === 'guard' && <Guard />}
+        {selectedPage === 'nomal' && <Nomal />}
+        {selectedPage === 'sale' && <Sale />}
+        {selectedPage === 'newcar' && <Newcar />}
+        {selectedPage === 'oldcar' && <Oldcar />}
+        {selectedPage === 'choose' && <Choose />}
+        {selectedPage === 'external' && <External />}
+        {selectedPage === 'internal' && <Internal />}
+        {selectedPage === 'safe2' && <Safe2 />}
+        {selectedPage === 'conven' && <Conven />}
+        {selectedPage === 'multi' && <Multi />}
       </div>
     </div>
   );
