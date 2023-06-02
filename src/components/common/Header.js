@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Responsive from './Responsive';
 import Button from './Button';
 import { Link } from 'react-router-dom';
+import '../Fonts/Font.css';
 
 const HeaderBlock = styled.div`
   position: fixed;
@@ -19,18 +20,18 @@ const Menu = styled.ul`
   height: 100%;
   padding: 1rem;
   .text-menu {
+    font-family: 'Medium';
     display: inline;
     margin: 2rem;
     margin-bottom: 0.5rem;
     .text {
-      font-size: 20px;
-      font-weight: 800;
-      &:hover{
+      /* font-size: 20px; */
+      /* font-weight: 800; */
+      &:hover {
         color: orange;
       }
     }
   }
-  
 `;
 
 /**
@@ -50,11 +51,13 @@ const Wrapper = styled(Responsive)`
   }
   .logo {
     width: 180px;
+    font-family: Bold;
     font-size: 1.125rem;
-    font-weight: 800;
     letter-spacing: 2px;
   }
   .right {
+    font-family: Bold;
+    color: #ffffff;
     width: 200px;
     display: flex;
     align-items: center;
@@ -77,26 +80,46 @@ const Header = ({ user, onLogout }) => {
     <>
       <HeaderBlock>
         <Wrapper>
-          <Link to='/' className="logo">
+          <Link to="/" className="logo">
             중고차 사이트
           </Link>
-          <div className='menu'>
+          <div className="menu">
             <Menu>
-                <li className='text-menu'><a href='/carsearch' className='text'>차량검색</a></li>
-                <li className='text-menu'><a href='login' className='text'>차량추천</a></li>
-                <li className='text-menu'><a href='login' className='text'>리콜분석</a></li>
-                <li className='text-menu'><a href='/Information' className='text'>자동차정보</a></li>
-                <li className='text-menu'><a href='/board/view/*' className='text'>커뮤니티</a></li>
+              <li className="text-menu">
+                <a href="/carsearch" className="text">
+                  차량검색
+                </a>
+              </li>
+              <li className="text-menu">
+                <a href="/login" className="text">
+                  차량추천
+                </a>
+              </li>
+              <li className="text-menu">
+                <a href="/postList" className="text">
+                  리콜분석
+                </a>
+              </li>
+              <li className="text-menu">
+                <a href="/Information" className="text">
+                  자동차정보
+                </a>
+              </li>
+              <li className="text-menu">
+                <a href="/board/view/*" className="text">
+                  커뮤니티
+                </a>
+              </li>
             </Menu>
           </div>
           {user ? (
-            <div className='right'>
-              <UserInfo>{user.username}</UserInfo>
+            <div className="right">
+              <UserInfo>{user.name}</UserInfo>
               <Button onClick={onLogout}>로그아웃</Button>
             </div>
           ) : (
             <div className="right">
-              <Button to="login">로그인</Button>
+              <Button to="/login">로그인</Button>
             </div>
           )}
         </Wrapper>
