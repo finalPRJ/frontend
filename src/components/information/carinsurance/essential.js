@@ -7,6 +7,9 @@ const EssenBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -33,6 +36,7 @@ const essential = () => {
         <EssenBlock>
             <div>
                 <text className="text">자동차 자차보험</text>
+                <hr/>
                 <li className="lili">해당 보험은 국내 모든 자동차 보험 가입 시 반드시 가입해야 하는 법적 의무가 있습니다.</li>
                 <li className="lili">간단히 ‘자차보험’이라고 불립니다.</li>
                 <li className="lili">공익을 위해 설립된 보험회사인 한국자동차보험공사(KAIC) 에서만 가입이 가능합니다.</li>

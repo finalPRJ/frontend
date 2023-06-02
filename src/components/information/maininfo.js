@@ -1,71 +1,37 @@
-import styled from "styled-components";
+import '../Fonts/Font.css';
+import '../information/information.css';
+import Icon01 from '../information/svg/Icon-01.svg';
+import Icon02 from '../information/svg/Icon-02.svg';
+import Icon03 from '../information/svg/Icon-03.svg';
+import Icon04 from '../information/svg/Icon-04.svg';
+import carImage from '../information/svg/image-01.svg';
+
 // 자동차 신차 보험에 관한 페이지
+const Maininfo = () => {
+  return (
+    <div className="main-container">
+        <img src={carImage} className="car-image" style={{height: 550}}/>
+      <div className="header-text">자동차 어디까지 알고 계신가요?</div>
+      <div className="icon-container">
+        <div className="icon-item">
+          <img src={Icon01} alt="Icon 01" />
+          <div className="icon-text">자동차 정보</div>
+        </div>
+        <div className="icon-item">
+          <img src={Icon02} alt="Icon 02" />
+          <div className="icon-text">자동차 보험</div>
+        </div>
+        <div className="icon-item">
+          <img src={Icon03} alt="Icon 03" />
+          <div className="icon-text">자동차 옵션</div>
+        </div>
+        <div className="icon-item">
+          <img src={Icon04} alt="Icon 04" />
+          <div className="icon-text">자동차 보험 추천</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-const MainBlock = styled.div`
-    width:100%;
-    margin-top: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 20px;
-    padding: 1rem;
-    background-color: white;
-    .text {
-        font-size: 60px;
-        margin-left: 15px;
-    }
-    .lili {
-        margin: 10px;
-        margin-top: 20px;
-        font-size: 15px;
-        font-weight: 800;
-    }
-    .li_list {
-        font-size: 22px;
-        font-weight: 800;
-        margin: 30px;
-        margin-top: 50px;
-    }
-    .ul_list {
-        margin: 30px;
-        font-size:15px;
-        font-weight: 800;
-    }
-    .div {
-        margin-top: 80px;
-    }
-    .span {
-        font-size: 18px;
-    }
-`
-
-const maininfo = () => {
-    return(
-        <MainBlock>
-            <div>
-                <text className="text">자동차 정보/보험 정보</text>
-            </div>
-            <div className="div">
-                <text className="lili">확인할 수 있는 정보</text>
-                <ol>
-                    <li className="li_list">자동차 정보</li>
-                        <ul className="ul_list">연비</ul>
-                        <ul className="ul_list">연료 종류</ul>
-                        <ul className="ul_list">안전 기능</ul>
-                        <ul className="ul_list">유지보수 비용, 보증 기간</ul>
-                        <ul className="ul_list">사고 기록</ul>
-                        <ul className="ul_list">부품</ul>
-                    <li className="li_list">자동차 보험</li>
-                        <ul className="ul_list">자동차 자차보험</ul>
-                        <ul className="ul_list">자동차 종합보험</ul>
-                        <ul className="ul_list">자동차 지키미보험</ul>
-                        <ul className="ul_list">자동차 일반보험</ul>
-                        <ul className="ul_list">자동차 할인보험</ul>
-                        <ul className="ul_list">자동차 신차보험</ul>
-                        <ul className="ul_list">자동차 중고차보험</ul>
-                </ol>
-            </div>
-        </MainBlock>
-    )
-}
-
-export default maininfo;
+export default Maininfo;

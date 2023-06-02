@@ -7,6 +7,9 @@ const GasBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -26,6 +29,7 @@ const gasmileage = () => {
         <GasBlock>
             <div>
                 <text className="text">연비</text>
+                <hr/>
                 <ul>
                     <li className="list">연비는 주행한 거리에 대한 연료 소비량을 나타내는 단위입니다. 연비는 일반적으로 도심 주행, 
                     고속도로 주행, 평균 주행 등 다양한 주건에서 측정됩니다.</li>

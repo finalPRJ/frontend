@@ -7,6 +7,9 @@ const CarpartBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -31,6 +34,7 @@ const carpart = () => {
         <CarpartBlock>
             <div>
                 <text className="text">부품</text>
+                <hr/>
                 <ol>
                     <li className="li_list">엔진</li>
                         <ul className="ul_list">차량의 핵심적인 부품으로서 연료를 연소하여 움직임을 만들어냅니다.</ul>

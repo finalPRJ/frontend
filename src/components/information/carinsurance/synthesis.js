@@ -7,6 +7,9 @@ const SynthBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -42,6 +45,7 @@ const synthesis = () => {
         <SynthBlock>
             <div>
                 <text className="text">자동차 종합보험</text>
+                <hr/>
                 <li className="lili">자동차에 대한 종합적인 보장을 제공하는 보험입니다.</li>
                 <li className="lili">종합보험의 경우 각 보험사에서 제공하는 보장 범위와 가입 조건이 상이할 수 있습니다.</li>
                 <li className="lili">일반보험의 보장 내용을 포함하고 있지만, 더 넓은 범위와 보장 내용을 제공합니다.</li>

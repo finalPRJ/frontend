@@ -1,14 +1,13 @@
 import HeaderContainer from "../containers/common/HeaderContainer";
-import MainView from "../components/common/MainView";
+import ReadContainer from "../components/board/ReadContainer";
 
-
-const Mainpage = () => {
+const ReadPage = () => {
     return (
         <div>
             <HeaderContainer/>
-            <MainView/>
+            <ReadContainer/>
         </div>
     )
 }
 
-export default Mainpage;
+export default ReadPage;

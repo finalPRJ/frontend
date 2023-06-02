@@ -7,6 +7,9 @@ const OldBlock = styled.div`
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1rem;
     background-color: white;
     .text {
@@ -43,6 +46,7 @@ const oldcar = () => {
         <OldBlock>
             <div>
                 <text className="text">자동차 중고차보험</text>
+                <hr/>
                 <li className="lili">중고차를 구매한 경우를 대비한 보험으로, 
                 중고차의 차량 상태나 사용기간 등에 따라 다양한 보험 상품이 제공됩니다.</li>
             </div>

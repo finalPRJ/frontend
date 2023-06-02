@@ -8,6 +8,9 @@ const OilBlock = styled.div`
     margin-right: 30px;
     margin-bottom: 20px;
     padding: 1rem;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
     background-color: white;
     .text {
         font-size: 60px;
@@ -31,6 +34,7 @@ const oiltype = () => {
         <OilBlock>
             <div>
                 <text className="text">연료 종류</text>
+                <hr/>
                 <ol>
                     <li className="li_list">
                         휘발유(Gasoline)
