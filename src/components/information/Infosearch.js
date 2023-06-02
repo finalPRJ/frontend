@@ -34,7 +34,6 @@ const Infosearch = () => {
   const PageSelect = (pageName) => {
     setSelectedPage(pageName);
 
-    // 스크롤 기능 추가
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

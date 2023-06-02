@@ -395,12 +395,10 @@ const Choose = () => {
         
     
     return(
-        <ChooseBlock>
-            <div className="div1">
-                <text className="text2">보험사 추천</text>
-                <br/><br/><br/><br/>
-                <text className="text">나이를 선택하세요: </text>
-                <select className="select" onChange={AgeChange}>
+        <div>
+                <text className="contents-text-title2">보험사 추천</text>
+                <text className="contents-text"><br/><b>나이</b>를 선택하세요: </text>
+                <select className="contents-text" onChange={AgeChange}>
                     <option>선택</option>
 			        <option key="20대" value="20대">20~29세</option>
 			        <option key="30대" value="30대">30~39세</option>
@@ -408,19 +406,17 @@ const Choose = () => {
                     <option key="50대" value="50대">50~59세</option>
                     <option key="60대" value="60대">60~69세</option>
 		        </select>
-                <br/><br/><br/>
-                <text className="text">차종을 선택하세요: </text>
-                <select className="select" onChange={CarChange}>
+                <text className="contents-text"><p/><b>차종</b>을 선택하세요: </text>
+                <select className="contents-text" onChange={CarChange}>
                     <option>선택</option>
-			        <option key="경차" value="경차">경  차</option>
-			        <option key="소형차" value="소형차">소 형 차</option>
-			        <option key="중형차" value="중형차">중 형 차</option>
-                    <option key="대형차" value="대형차">대 형 차</option>
+			        <option key="경차" value="경차">경차</option>
+			        <option key="소형차" value="소형차">소형차</option>
+			        <option key="중형차" value="중형차">중형차</option>
+                    <option key="대형차" value="대형차">대형차</option>
 		        </select>
-                <br/><br/><br/>
-                <text className="text">주행거리를 선택하세요: </text>
-                <select className="select" onChange={KmChange}>
-                    <option>선택</option>
+                <text className="contents-text"><p/><b>주행거리</b>를 선택하세요: </text>
+                <select className="contents-text" onChange={KmChange}>
+                    <option >선택</option>
 			        <option key="2000km" value="2000">2000km이하</option>
 			        <option key="3000km" value="3000">2001km~3000km이하</option>
 			        <option key="4000km" value="4000">3001km~4000km이하</option>
@@ -435,32 +431,22 @@ const Choose = () => {
 			        <option key="17000km" value="16000">15001km~17000km이하</option>
 			        <option key="18000km" value="18000">17001km이상</option>
 		        </select>
-                <br/>
-                <div className="div2" onClick={(event) => Submit(event)}>
-                    <text className="text">제출하기</text>
+                <div onClick={(event) => Submit(event)}>
+                    <text className="contents-text"><p/>제출하기</text>
                 </div>
                 <br/><br/>
-            </div>
             <div className="div3">
-                <br/><br/>
-                <text className="text">나이로 추천하는 보험사</text>
-                <br/><br/>
-                <text>추천하는 보험사</text>
-                <br/><br/>
-                <text className="text">차종으로 추천하는 보험사</text>
-                <br/><br/>
-                <text>추천하는 보험사</text>
-                <br/><br/>
-                <text className="text">주행거리로 추천하는 보험사</text>
-                <br/><br/>
-                <text>추천하는 보험사</text>
-                <br/><br/>
-                <text className="text">종합적으로 추천하는 보험사</text>
-                <br/><br/>
-                <text>추천하는 보험사</text>
+                <text className="contents-text"><p/><b>나이로 추천하는 보험사</b></text>
+                <text className="contents-text"><p/>추천하는 보험사</text>
+                <text className="contents-text"><p/><b>차종으로 추천하는 보험사</b></text>
+                <text className="contents-text"><p/>추천하는 보험사</text>
+                <text className="contents-text"><p/><b>주행거리로 추천하는 보험사</b></text>
+                <text className="contents-text"><p/>추천하는 보험사</text>
+                <text className="contents-text"><p/><b>종합적으로 추천하는 보험사</b></text>
+                <text className="contents-text"><p/>추천하는 보험사</text>
                 <br/><br/><br/>
             </div>
-        </ChooseBlock>
+        </div>
     )
 }
 

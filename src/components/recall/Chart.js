@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PieChart, Pie, Legend, Cell, ResponsiveContainer } from 'recharts';
 
-const Chart = ({ brand, model }) => {
+const Chart = () => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {

@@ -7,7 +7,6 @@ const gasmileage = () => {
     <div>
       <text className="contents-text-num">01</text>
       <text className="contents-text-title">연비</text>
-
       <ul>
         <li className="contents-text">
           연비란? <b>주행한 거리에 대한 연료 소비량</b>을 나타내는 단위

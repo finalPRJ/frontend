@@ -34,7 +34,6 @@ const carpart = () => {
     <div>
       <text className="contents-text-num">06</text>
       <text className="contents-text-title">부품</text>
-      <hr />
       <ol>
         <li className="contents-text">
           <b>엔진</b>

@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import '../Fonts/Font.css';
 import '../information/information.css';
 import Icon01 from '../information/svg/Icon-01.svg';
