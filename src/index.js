@@ -10,7 +10,9 @@ import { composeWithDevTools } from '../node_modules/redux-devtools-extension/in
 import { Provider } from '../node_modules/react-redux/es/exports';
 import createSagaMiddleware from 'redux-saga';
 import { applyMiddleware } from 'redux';
-import { check, tempSetUser } from './modules/user';
+import { ACCESS_TOKEN } from './lib/api/OAuth';
+import { check } from './modules/user';
+
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -20,9 +22,9 @@ const store = createStore(
 
 function loadUser() {
   try {
-    const user = localStorage.getItem('user');
-    if (!user) return; // 로그인 상태가 아니라면 아무것도 안 함
-    store.dispatch(tempSetUser(JSON.parse(user)));
+    const user = localStorage.getItem(ACCESS_TOKEN);
+    if (!user) return; // 사용자가 로그인하지 않았을 경우 아무 작업도 수행하지 않습니다.
+
     store.dispatch(check());
   } catch (e) {
     console.log('localStorage is not working');

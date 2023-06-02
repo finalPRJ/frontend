@@ -1,6 +1,12 @@
 import axios from 'axios';
+import { API_BASE_URL } from './OAuth';
 
-const client = axios.create();
+//기숙사 baseURL: 'http://192.168.1.6:8070'
+//인문관 baseURL: 'http://192.168.0.242:8070'
+
+const client = axios.create({
+  baseURL: 'http://localhost:5000'
+});
 
 /*
   글로벌 설정 예시:

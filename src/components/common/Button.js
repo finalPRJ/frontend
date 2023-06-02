@@ -35,6 +35,16 @@ const buttonStyle = css`
         background: ${palette.cyan[4]};
       }
     `}
+  
+  ${props =>
+    props.menu &&
+    css`
+      margin: 0.5rem;
+      align-items: center;
+      width: 50rem;
+      height: 80%;
+    `
+  }
 `;
 
 const StyledButton = styled.button`
