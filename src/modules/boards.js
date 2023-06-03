@@ -54,6 +54,7 @@ const initialState = {
     bTypefilter: {
         menu : 't:',
         input : '',
+        page: '1',
     },
 };
 

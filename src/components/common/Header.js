@@ -109,7 +109,7 @@ const Header = ({ user, onLogout }) => {
               </li>
               <li className="text-menu">
                 <a href="/boardlist" className="text">
-                  게시판
+                  커뮤니티
                 </a>
               </li>
             </Menu>

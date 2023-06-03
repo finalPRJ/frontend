@@ -12,7 +12,7 @@ import Community from "../../lib/image/car_community.jpg";
 
 const View = styled.div`
     width: 1300px;
-    height: 590px;
+    height: 650px;
     margin: 30px auto;
     overflow: hidden;
     .div {
@@ -46,6 +46,9 @@ const View = styled.div`
         align-items: center;
         flex-direction: column;
         background: #C8E8F5;
+    }
+    .carousel .slide {
+        background: white;
     }
     .carousel .slide img {  //이미지가 들어가는 공간
         object-fit: contain;
@@ -177,7 +180,7 @@ const MainView = () => {
         <View>
             <Carousel showThumbs={false} autoPlay infiniteLoop interval={3500}>
             <div className="div2">
-                <a href="http://localhost:3000/carsearch"> 
+                <a href="/carsearch"> 
                     <img src={Search} alt="Search" />
                     <Text1>차량 검색 서비스</Text1>
                     <Explan color="#004D40">🔍 옵션 검색 기능 소개<br/><br/>
@@ -225,7 +228,7 @@ const MainView = () => {
                 <Button>자세히 살펴보기</Button>
             </div>
             <div className="div">
-                <a href="http://localhost:3000/Information"> 
+                <a href="/Information"> 
                     <img src={Info} alt="Info" />
                     <Text4 color="black">자동차 정보 서비스</Text4>
                     <Explan>🔍 자동차 정보 서비스 소개<br/><br/>
@@ -240,7 +243,7 @@ const MainView = () => {
                 </a>
             </div>
             <div className="div">
-                <a href="http://localhost:3000/board/view/*">
+                <a href="/boardlist">
                     <img src={Community} alt="Community" />
                     <Text5>커뮤니티 게시판</Text5>
                     <Explan color="black">

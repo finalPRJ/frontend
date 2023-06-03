@@ -9,49 +9,98 @@ const CarmenuBlock = styled.div`
 `
 
 const CarmenuContent = styled.div`
-    background: yellow;
-    border-radius: 10px;
-    width: 100%;
-    border: 1px solid ${palette.gray[5]};
-    .SearchTag {
-        display: flex;
-        width: 100%;
-        height: 50px;
-        padding: 0; /* 패딩을 0으로 설정 */
-        margin: 0; /* 마진을 0으로 설정 */
-        background: green;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        align-items: center;
-        justify-content: space-between;
-        .list {
-            flex: 1;
-            display: inline;
-            font-size: 15px;
-            font-weight: 800;
-            text-align: center;
-            text-decoration: underline;
-        }
-    }
-    .searchMenu {
-        background: white;
-        padding: 1rem;
-        border-top: 1px solid ${palette.gray[5]};;
-    }
-    .SearchAcodian {
-        background: white;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.2s ease-in-out;
-        border-top: 1px solid ${palette.gray[5]};;
+  border-radius: 2px;
+  width: 100%;
+  border: 1px solid ${palette.gray[5]};
 
-        &.active {
-        max-height: 150rem;
-        transition: max-height 0.2s ease-in-out;
-        }
+  .SearchTag {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    background: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    .list {
+      flex: 1;
+      display: inline;
+      font-size: 15px;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 10px;
+      background: white;
+      text-decoration: underline;
+      border-radius: 10px;
+    }
   }
 
+  .searchMenu {
+    background: white;
+    padding: 1rem;
+    border-top: 1px solid ${palette.gray[5]};
+  }
 
+  .SearchAcodian {
+    background: white;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-in-out;
+    border-top: 1px solid ${palette.gray[5]};
+
+    &.active {
+      max-height: 150rem;
+      transition: max-height 0.2s ease-in-out;
+    }
+
+    .LargeText {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      background: #eaf7f6;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid ${palette.gray[5]};
+      border-radius: 4px;
+    }
+
+    .select2 {
+      width: 100px;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      margin-left: 5px;
+      margin-right: 5px;
+      border: 1px solid ${palette.gray[5]};
+      border-radius: 4px;
+    }
+
+    p {
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="radio"] {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: 0.5rem;
+    }
+  }
 `;
 
 
@@ -226,7 +275,7 @@ const Carmenu = ({handleChangeFilters}) => {
                         legion === '' || legion === '국산'
                         ? 
                         <div>
-                        <div>국산입니다!</div>
+                        <div className="LargeText">국산</div>
                         {brand1.map((brand, index) => (
                             <p key={index} onClick={() => handleChangeFilters({brand: brand})}>{brand}</p>
                         ))}
@@ -237,7 +286,7 @@ const Carmenu = ({handleChangeFilters}) => {
                         legion === '' || legion === '수입'
                         ? 
                         <div>
-                        <div>수입입니다!</div>
+                        <div className="LargeText">수입</div>
                         {brand2.map((brand, index) => (
                             <p key={index} onClick={() => handleChangeFilters({brand: brand})}>{brand}</p>
                         ))}
@@ -273,7 +322,7 @@ const Carmenu = ({handleChangeFilters}) => {
                     km
                 </div>
                 <div className={`SearchAcodian ${activeIndexes[4] === 4 ? "active" : ""}`}>
-                    <select value={selectedMin} 
+                    <select className="select2" value={selectedMin} 
                             onChange={(e) => {
                                 handleMinChange(e);
                                 handleChangeFilters({ minkm: e.target.value });
@@ -285,8 +334,8 @@ const Carmenu = ({handleChangeFilters}) => {
                         </option>
                         ))}
                     </select>
-
-                    <select value={selectedMax} 
+                    <text>~</text>
+                    <select className="select2" value={selectedMax} 
                             onChange={(e) => {
                                 handleMaxChange(e);
                                 handleChangeFilters({ maxkm: e.target.value });
@@ -303,7 +352,7 @@ const Carmenu = ({handleChangeFilters}) => {
                     연식
                 </div>
                 <div className={`SearchAcodian ${activeIndexes[5] === 5 ? "active" : ""}`}>
-                    <select value={selectedMinYear}
+                    <select className="select2" value={selectedMinYear}
                         onChange={(e) => {
                             handleYearMinChange(e);
                             handleChangeFilters({ minyear: e.target.value});
@@ -315,7 +364,8 @@ const Carmenu = ({handleChangeFilters}) => {
                             </option>
                         ))}    
                     </select>
-                    <select value={selectedMaxYear}
+                    <text>~</text>
+                    <select className="select2" value={selectedMaxYear}
                         onChange={(e) => {
                             handleYearMaxChange(e);
                             handleChangeFilters({ maxyear: e.target.value});

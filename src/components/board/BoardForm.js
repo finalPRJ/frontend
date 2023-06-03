@@ -2,95 +2,119 @@ import styled from "styled-components";
 import BoardComboBox from "./BoardComboBox";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import BoardPaging from "../common/BoardPaging";
 
 const BoardBlock = styled.div`
     width: 100%;
 `
 
 const BoardContent = styled.div`
-    background: white;
-    width: 1280px;
-    height: 100rem;
+  background: white;
+  width: 1280px;
+  display: flex;
+  margin: auto;
+  margin-top: 68px;
+  padding: 2rem;
+
+  .banel {
+    width: 100%;
+    height: 200px;
+  }
+  .contentBlock {
     display: flex;
-    margin: auto;
-    margin-top: 68px;
+    width: 100%;
+    box-sizing: border-box;
+    background: white;
+    justify-content: center;
+  }
+
+  .text {
+      font-size: 40px;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      margin-left: 3rem;
+  }
+
+  .div {
+    width: 100%;
     padding: 2rem;
-    .contentBlock {
-        display: flex;
-        width: 1400px;
-        box-sizing: border-box;
-        background: white;
-    }
-    .div {
-        margin-top: 50px;
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-bottom: 50px;
-        width: 100%;
-        text-align: center;
-        border-radius: 20px;
-        border-width: 1px;
-        border-style: solid;
-        background: yellow;
-    }
-    .text {
-        font-size: 60px;
-    }
+
     .table {
-        border: 1px solid lightgrey;
-        width: 850px;
-        margin: 15px auto;
-        font-size: 20px;
-        text-align: center;
-    }
-    th {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 2rem auto;
+      font-size: 18px;
+      text-align: center;
+      border-top: 1px solid black;
+
+      th,
+      td {
+        border-bottom: 1px solid lightgray;
+        padding: 0.5rem;
+      }
+
+      th {
         background-color: lightgray;
-    }
-    td {
+      }
+
+      td {
         background-color: white;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+          color: orange;
+        }
+      }
     }
+
     .div2 {
-        display: flex;
-        align-items: flex-start; 
-        width: 820px;
-        height: 100px;
-        margin-top: 50px;
-        margin-left: 150px;
-        border-radius: 10px;
-    }
-    .input{
-        margin-left: 10px;
-        width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 2rem;
+
+      .input {
+        width: 300px;
+        height: 40px;
+        padding: 0.5rem;
         font-size: 18px;
-        
-    }
-    .button {
-        width:80px;
-        background: green;
-        margin-left: 10px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+      }
+
+      .button {
+        width: 80px;
+        background: lightgray;
         border-radius: 10px;
-        border-width: 1px;
-        border-style: solid;
-        font-size: 20px;
+        border: 1px solid lightgray;
+        font-size: 18px;
         cursor: pointer;
-        &:hover{
-                color: orange;
+        &:hover {
+          color: orange;
         }
-    }
-    .button2 {
-        width:100px;
-        background: green;
-        margin-left: 160px;
+      }
+
+      .button2 {
+        width: 100px;
+        background: lightgray;
         border-radius: 10px;
-        border-width: 1px;
-        border-style: solid;
-        font-size: 20px;
+        border: 1px solid lightgray;
+        font-size: 18px;
         cursor: pointer;
-        &:hover{
-                color: orange;
+        &:hover {
+          color: orange;
         }
+      }
     }
-`
+  }
+`;
+
+
+
 
 const OPTIONS = [
 	{ value: "t:", name: "제목" },
@@ -141,7 +165,7 @@ const BoardItem = ({boards}) => {
     )
 }
 
-const BoardForm = ({ boards, error, changeBtypeField }) => {
+const BoardForm = ({ boards, error, changeBtypeField, handleChangePage }) => {
 
    const navigate = useNavigate();
    const [menu,setMenu] = useState('t:');
@@ -165,7 +189,7 @@ const BoardForm = ({ boards, error, changeBtypeField }) => {
    return(
         <BoardBlock>
             <BoardContent>
-                <div className="contentBlock">
+                  <div className="contentBlock">
                     <div className="div">
                         <text className="text">커뮤니티</text>
                         <div className="div2">
@@ -200,7 +224,10 @@ const BoardForm = ({ boards, error, changeBtypeField }) => {
                         {boards && (
                             <BoardItem boards={boards} />
                         )}
-
+                        <BoardPaging
+                          handleChangePage={handleChangePage}
+                          boards = {boards}
+                        />
                     </div>
                 </div>
             </BoardContent>

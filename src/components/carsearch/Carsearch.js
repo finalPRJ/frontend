@@ -28,7 +28,7 @@ const CarSearchContent = styled.div`
     }
 `
 /**차량 검색 컴포넌트 */
-const Carsearch = ({cars , handleChangeFilters , handleChangePage}) => {
+const Carsearch = ({ cars , handleChangeFilters , handleChangePage, sendTrend}) => {
 
     return (
         <CarsearchBlock>
@@ -39,7 +39,7 @@ const Carsearch = ({cars , handleChangeFilters , handleChangePage}) => {
                 </div>
                 <div className="contentBlock">
                     {cars.data && cars.data.dtoList && cars.data.dtoList.map((dtoList, index) => (
-                    <Carcard carData={dtoList} key={index}/>
+                    <Carcard carData={dtoList} key={index} sendTrend={sendTrend}/>
                 ))}
                 </div>
             </CarSearchContent>

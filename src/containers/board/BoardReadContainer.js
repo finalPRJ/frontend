@@ -18,7 +18,7 @@ const BoardReadContainer = () => {
     const bno = searchParams.get("bno");
 
     const { board , error, loading , user} = useSelector(
-      ({board, loading, user}) => ({
+      ({ board, loading, user }) => ({
         board : board.board,
         error: board.error,
         loading: loading['board/READ_BOARD'],
