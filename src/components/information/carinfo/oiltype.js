@@ -1,3 +1,5 @@
+import '../../information/information.scss';
+
 // 연료 종류
 const oiltype = () => {
   return (

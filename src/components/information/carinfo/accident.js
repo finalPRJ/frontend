@@ -1,3 +1,5 @@
+import '../../information/information.scss';
+
 // 사고기록
 const accident = () => {
   return (

@@ -1,5 +1,5 @@
 import '../Fonts/Font.css';
-import '../information/information.css';
+import '../information/information.scss';
 import Icon01 from '../information/svg/Icon-01.svg';
 import Icon02 from '../information/svg/Icon-02.svg';
 import Icon03 from '../information/svg/Icon-03.svg';

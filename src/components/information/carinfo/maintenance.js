@@ -1,3 +1,5 @@
+import '../../information/information.scss';
+
 // 유지보수, 보증기간
 const maintenance = () => {
   return (

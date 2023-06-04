@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import '../information/information.scss';
 // 보험사 추천해주는 페이지
 
 const ChooseBlock = styled.div`

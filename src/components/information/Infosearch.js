@@ -1,5 +1,6 @@
 import Infomenu from './Infomenu';
 import { useState, useRef } from 'react';
+import '../information/information.scss';
 
 import Choose from './choose';
 

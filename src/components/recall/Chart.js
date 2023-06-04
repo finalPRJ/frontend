@@ -73,19 +73,18 @@ const Chart = () => {
   return (
     <div>
       <div className="chart-container">
-        <ResponsiveContainer width={800} height="100%">
-          <PieChart width="100%" height="100%">
+        <ResponsiveContainer>
+          <PieChart>
             <Legend
               layout="vertical"
               verticalAlign="top"
-              align="top"
+              // align="top"
               width="100%"
-              background-color="#000000"
             />
             <Pie
               data={datas}
               cx="50%"
-              cy="-150%"
+              cy={180}
               labelLine={false}
               label={renderCustomizedLabel}
               outerRadius={180}

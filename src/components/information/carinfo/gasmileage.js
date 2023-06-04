@@ -1,5 +1,5 @@
 import '../../Fonts/Font.css';
-import '../../information/information.css';
+import '../../information/information.scss';
 
 // 연비
 const gasmileage = () => {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import '../Fonts/Font.css';
-import '../information/information.css';
+import '../information/information.scss';
 
 const InfomenuBlock = styled.div`
   width: 100%;

@@ -1,3 +1,5 @@
+import '../../information/information.scss';
+
 // 안전 기능
 const safe = () => {
   return (

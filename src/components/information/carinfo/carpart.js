@@ -1,34 +1,6 @@
-import styled from 'styled-components';
+import '../../information/information.scss';
+
 // 부품에 관한 페이지
-
-const CarpartBlock = styled.div`
-  width: 100%;
-  margin-top: 20px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  border-width: 1px;
-  border-style: solid;
-  padding: 1rem;
-  background-color: white;
-  .text {
-    font-size: 60px;
-    margin-left: 15px;
-  }
-  .li_list {
-    font-size: 22px;
-    font-weight: 800;
-    margin: 30px;
-    margin-top: 50px;
-  }
-  .ul_list {
-    margin: 30px;
-    font-size: 15px;
-    font-weight: 800;
-  }
-`;
-
 const carpart = () => {
   return (
     <div>

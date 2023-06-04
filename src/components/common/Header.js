@@ -4,7 +4,7 @@ import Responsive from './Responsive';
 import Button from './Button';
 import { Link } from 'react-router-dom';
 import '../Fonts/Font.css';
-import '../../components/information/information.css'
+import '../../components/information/information.scss'
 
 const HeaderBlock = styled.div`
   position: fixed;
