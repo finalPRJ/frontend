@@ -45,15 +45,7 @@ const writePostSaga = createRequestSaga(WRITE_POST, (payload) => {
 const updatePostSaga = createRequestSaga(UPDATE_POST, (payload) => {
   const { options1, options2, options3, options4, options5, ...rest } = payload; // 문자열로 바꿔야하기 때문에 배열을 payload에서 가져옴
 
-  const options = {
-    options1: options1.join(', '),
-    options2: options2.join(', '),
-    options3: options3.join(', '),
-    options4: options4.join(', '),
-    options5: options5.join(', '),
-  }; // 문자열로 변경
-
-  return postsAPI.updatePost({ ...rest, ...options }); // 바뀐 문자열로 요청
+  return postsAPI.updatePost({ ...rest }); // 바뀐 문자열로 요청
 });
 
 export function* writeSaga() {

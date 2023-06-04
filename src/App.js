@@ -10,6 +10,7 @@ import BoardReadpage from "./pages/BoardReadpage";
 import OAuth2RedirectHandlerPage from "./components/auth/OAuth2RedirectHandler";
 import UserinfoPage from "./pages/UserinfoPage";
 import RecoPage from "./pages/RecoPage";
+import RecallListPage from "./pages/RecallListPage";
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/oauth2/redirect" element={<OAuth2RedirectHandlerPage/>}/>
       <Route path="/userinfo" element={<UserinfoPage/>}/>
       <Route path="/reco" element={<RecoPage/>}/>
+      <Route path="/recall" element={<RecallListPage/>}/>
     </Routes>
   );
 }

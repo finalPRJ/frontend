@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-/* KoPubWorld Dotum */
 @font-face {
   font-family: 'Medium 01';
   font-style: normal;
@@ -8,20 +7,7 @@
 }
 
 @font-face {
-  font-family: 'Medium 02';
-  font-style: normal;
-  src: url('./KoPubWorld\ Dotum\ Medium.woff') format('woff');
-}
-
-@font-face {
   font-family: 'Bold';
   font-style: normal;
-  src: url('./KoPubWorld\ Dotum\ Bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Bold2';
-  font-style: Bold;
-  font-weight: 200;
   src: url('./KoPubWorld\ Dotum\ Bold.woff') format('woff');
 }

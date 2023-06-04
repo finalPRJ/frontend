@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import './Paging.css';
 import Pagination from "react-js-pagination";
 
-const Paging = ({handleChangePage, cardata}) => {
+const Paging = ({ handleChangePage, cardata }) => {
 
   const [page, setPage] = useState(1);
 
   const handlePageChange = (page) => {
     setPage(page);
-    handleChangePage({page:page});
+    handleChangePage({ page : page });
   };
 
   return (

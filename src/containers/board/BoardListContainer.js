@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { boardsChangeField, listBoards } from "../../modules/boards";
 
 
-
 const BoardListContainer = () => {
 
     const dispatch = useDispatch();
@@ -19,7 +18,14 @@ const BoardListContainer = () => {
     )
     
     const changeBtypeField = (filterObj) => {
-        const updatedFilters = { ...bTypefilter, ...filterObj };
+        const updatedFilters = { ...bTypefilter, ...filterObj, page: '1' };
+        dispatch(boardsChangeField(updatedFilters));
+        dispatch(listBoards());
+    }
+
+    const handleChangePage = (page) => {
+        console.log('handleChangePage: ',page);
+        const updatedFilters = { ...bTypefilter, ...page };
         dispatch(boardsChangeField(updatedFilters));
         dispatch(listBoards());
     }
@@ -34,6 +40,7 @@ const BoardListContainer = () => {
             boards = {boards}
             loading = {loading}
             error = {error}
+            handleChangePage = {handleChangePage}
         />
     )
 }

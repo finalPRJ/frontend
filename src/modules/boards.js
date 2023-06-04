@@ -14,19 +14,22 @@ const CHANGE_FIELD = 'boards/CHANGE_FIELD';
 
 
 export const listBoards = createAction(LIST_BOARDS, params => params);
-export const boardsChangeField = createAction(CHANGE_FIELD, ({ menu , input }) => ({
+export const boardsChangeField = createAction(CHANGE_FIELD, ({ menu , input , page }) => ({
     menu,
     input,
+    page,
 }))
 
 export function* listBoardsSaga() {
-    const { menu, input } = yield select(state => state.boards.bTypefilter);
+    const { menu, input, page } = yield select(state => state.boards.bTypefilter);
 
     let apiFunction = boardsAPI.listboards;
 
     let params = new URLSearchParams();
     params.append('btype',`${menu}${input}`);
+    params.append('page',`${page}`);
 
+    console.log(params);
     yield put(startLoading(LIST_BOARDS));
     try {
         const boards = yield call(apiFunction, params);
@@ -54,6 +57,7 @@ const initialState = {
     bTypefilter: {
         menu : 't:',
         input : '',
+        page: '1',
     },
 };
 
@@ -73,6 +77,7 @@ const boards = handleActions(
                 ...state.bTypefilter,
                 menu: action.payload.menu,
                 input: action.payload.input,
+                page: action.payload.page,
             }
         })
     },

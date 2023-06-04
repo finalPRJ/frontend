@@ -98,7 +98,7 @@ const Header = ({ user, onLogout }) => {
                 </a>
               </li>
               <li className="text-menu">
-                <a href="/postList" className="text">
+                <a href="/recall" className="text">
                   리콜분석
                 </a>
               </li>
@@ -109,7 +109,7 @@ const Header = ({ user, onLogout }) => {
               </li>
               <li className="text-menu">
                 <a href="/boardlist" className="text">
-                  게시판
+                  커뮤니티
                 </a>
               </li>
             </Menu>
