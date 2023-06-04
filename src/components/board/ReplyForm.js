@@ -108,7 +108,7 @@ const ReplyBox = ({ reply, user, onRemove, handleModify }) => {
     <div>
       <span className="span">
         <strong className="name">{reply.replyerNickname}</strong>
-        {reply.id === user.id && (
+        {user && reply.id === user.id && (
           <>
             {onModify ? (
               <div className="reply_modify" onClick={handleModifyState}>
