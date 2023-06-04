@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend/static/css/main.adc533cc.css",
-    "main.js": "/frontend/static/js/main.7d5fa16f.js",
+    "main.js": "/frontend/static/js/main.c8847558.js",
     "static/js/787.56a29bc1.chunk.js": "/frontend/static/js/787.56a29bc1.chunk.js",
     "static/media/KoPubWorld Dotum Medium.woff": "/frontend/static/media/KoPubWorld Dotum Medium.d4663cd37ec26b26240e.woff",
     "static/media/KoPubWorld Dotum Bold.woff": "/frontend/static/media/KoPubWorld Dotum Bold.7204e975c22b973d429c.woff",
@@ -20,11 +20,11 @@
     "static/media/Icon-03.svg": "/frontend/static/media/Icon-03.c816c69b4fb8289ffa0d0bb53099b32d.svg",
     "index.html": "/frontend/index.html",
     "main.adc533cc.css.map": "/frontend/static/css/main.adc533cc.css.map",
-    "main.7d5fa16f.js.map": "/frontend/static/js/main.7d5fa16f.js.map",
+    "main.c8847558.js.map": "/frontend/static/js/main.c8847558.js.map",
     "787.56a29bc1.chunk.js.map": "/frontend/static/js/787.56a29bc1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.adc533cc.css",
-    "static/js/main.7d5fa16f.js"
+    "static/js/main.c8847558.js"
   ]
 }
