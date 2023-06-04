@@ -30,7 +30,7 @@ const BoardContent = styled.div`
 
   .text {
       font-size: 40px;
-      margin-bottom: 2rem;
+      margin-bottom: 50px;
       font-weight: bold;
       margin-left: 3rem;
   }

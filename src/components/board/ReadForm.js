@@ -19,7 +19,7 @@ const ReadContent = styled.div`
     width: 850px;
     margin-right: 1.5rem;
   }
-  img {
+  .img {
     width: 16px;
     height: 16px;
   }
@@ -65,16 +65,18 @@ const ReadContent = styled.div`
     margin-left: 10px;
     margin-right: 10px;
     flex: 1;
-    overflow-y: auto;
     background: white;
   }
-  .text {
+  .content {
     outline: none;
     padding: 10px;
-    resize: none;
     width: 100%;
     height: 100%;
     font-size: 18px;
+  }
+  .content img {
+  max-width: 100%;
+  height: auto;
   }
   .button {
     text-align: center;
@@ -162,13 +164,13 @@ const ReadForm = ({ board, loading, error, user, onEdit, onRemove }) => {
                   <text className="writeDate">{formatDateTime(board.createtime)}</text>
                 </div>
                 <div>
-                  <img src={image} alt="reply"/>
+                  <img className="img" src={image} alt="reply"/>
                   <text> 댓글 수 : {board.replyCount}</text>
                 </div>
               </div>
               <div className="body">
                 <div
-                  className="text"
+                  className="content"
                   dangerouslySetInnerHTML={{ __html: board.content }}
                 />
               </div>

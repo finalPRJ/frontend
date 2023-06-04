@@ -7,15 +7,16 @@ const BoardPaging = ({ handleChangePage, boards }) => {
   const [page, setPage] = useState(1);
 
   const handlePageChange = (page) => {
+    console.log(page);
     setPage(page);
-    handleChangePage({page:page});
+    handleChangePage({ page : page });
   };
 
   return (
     <Pagination
       activePage={page}
-      itemsCountPerPage={40}
-      totalItemsCount={boards ? boards.data.totalPage * 20 : 0}
+      itemsCountPerPage={20}
+      totalItemsCount={ boards ? boards.data.totalPage * 20 : 0 }
       pageRangeDisplayed={10}
       prevPageText={"‹"}
       nextPageText={"›"}

@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { boardsChangeField, listBoards } from "../../modules/boards";
 
 
-
 const BoardListContainer = () => {
 
     const dispatch = useDispatch();
@@ -25,6 +24,7 @@ const BoardListContainer = () => {
     }
 
     const handleChangePage = (page) => {
+        console.log('handleChangePage: ',page);
         const updatedFilters = { ...bTypefilter, ...page };
         dispatch(boardsChangeField(updatedFilters));
         dispatch(listBoards());

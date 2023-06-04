@@ -5,10 +5,12 @@ import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import Responsive from '../common/Responsive';
 import AWS from 'aws-sdk';
+import ImageResize from 'quill-image-resize';
+Quill.register('modules/ImageResize', ImageResize);
 
 const s3 = new AWS.S3({
-  accessKeyId : 'accessKeyId',
-  secretAccessKey: 'secretAccessKey',
+  accessKeyId : process.env.REACT_APP_ACCESS_KEY_ID,
+  secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
   region: 'ap-northeast-2',
 });
 
@@ -55,21 +57,21 @@ const Editor = ({ title, content, onChangeField }) => {
           [{ list: 'ordered' }, { list: 'bullet' }],
           ['blockquote', 'code-block', 'link', 'image'],
         ],
-        clipboard: {
-          // 이미지 삽입 시 최대 크기 설정
-          matchVisual: true,
-          maxImageSize: { width: 256, height: 256 },
-        },
+        /* 추가된 코드 */
+        ImageResize: {
+          parchment: Quill.import('parchment')
+        }
       },
     });
 
     const quill = quillInstance.current;
 
     const handleImageUpload = async (file) => {
+
       const fileName = file.name;
 
       const params = {
-        Bucket: 'bucket',
+        Bucket: process.env.REACT_APP_BUCKET_NAME,
         Key: fileName,
         Body: file,
       };
@@ -81,11 +83,6 @@ const Editor = ({ title, content, onChangeField }) => {
         const range = quill.getSelection();
         quill.insertEmbed(range.index, 'image', imageUrl);
 
-        // 이미지 삽입 후 이미지 크기 제한을 위한 로직 추가
-        const imgElements = quillElement.current.querySelectorAll('img');
-        imgElements.forEach((img) => {
-          img.setAttribute('style', 'max-width: 256px; max-height: 256px;');
-        });
       } catch (error) {
         console.error('Failed to upload image:', error);
       }

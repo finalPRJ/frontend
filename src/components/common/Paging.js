@@ -8,7 +8,7 @@ const Paging = ({ handleChangePage, cardata }) => {
 
   const handlePageChange = (page) => {
     setPage(page);
-    handleChangePage({page:page});
+    handleChangePage({ page : page });
   };
 
   return (
