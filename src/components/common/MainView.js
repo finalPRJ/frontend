@@ -12,7 +12,7 @@ import Community from "../../lib/image/car_community.jpg";
 
 const View = styled.div`
     width: 1300px;
-    height: 590px;
+    height: 650px;
     margin: 30px auto;
     overflow: hidden;
     .div {
@@ -46,6 +46,9 @@ const View = styled.div`
         align-items: center;
         flex-direction: column;
         background: #C8E8F5;
+    }
+    .carousel .slide {
+        background: white;
     }
     .carousel .slide img {  //이미지가 들어가는 공간
         object-fit: contain;

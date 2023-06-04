@@ -437,13 +437,13 @@ const Choose = () => {
                 <br/><br/>
             <div className="div3">
                 <text className="contents-text"><p/><b>나이로 추천하는 보험사</b></text>
-                <text className="contents-text"><p/>추천하는 보험사</text>
+                <text className="contents-text">추천하는 보험사</text>
                 <text className="contents-text"><p/><b>차종으로 추천하는 보험사</b></text>
-                <text className="contents-text"><p/>추천하는 보험사</text>
+                <text className="contents-text">추천하는 보험사</text>
                 <text className="contents-text"><p/><b>주행거리로 추천하는 보험사</b></text>
-                <text className="contents-text"><p/>추천하는 보험사</text>
+                <text className="contents-text">추천하는 보험사</text>
                 <text className="contents-text"><p/><b>종합적으로 추천하는 보험사</b></text>
-                <text className="contents-text"><p/>추천하는 보험사</text>
+                <text className="contents-text">추천하는 보험사</text>
                 <br/><br/><br/>
             </div>
         </div>

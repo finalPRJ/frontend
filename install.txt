@@ -44,3 +44,8 @@ $ npm install react-paginate --save --legacy-peer-deps
 React-Quill
 $ npm install react-quill
 
+aws-sdk
+$ npm install aws-sdk
+
+Sass
+$ npm install node-sass

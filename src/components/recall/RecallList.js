@@ -1,49 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import WordClude from './WordClude';
-
-const MainBlock = styled.div`
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  align-items: flex-start;
-  height: 50vh;
-`;
-
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-`;
-
-const BoxContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 50px;
-`;
-
-const Box = styled.div`
-  background: #e3f2fd;
-  width: 350px;
-  height: 100px;
-  margin-bottom: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const WordCloudContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  width: 500px;
-  margin-top: 130vh;
-`;
+import '../recall/recall.scss';
 
 const RecallList = () => {
   const [top3, setTop3] = useState([]); // 리콜 상위 데이터 (3)
@@ -52,7 +10,7 @@ const RecallList = () => {
 
   useEffect(() => {
     axios
-      .get('http://13.125.169.58:5000/recall/data') // 리콜 데이터 get
+      .get('http://13.125.43.217:5000/recall/data') // 리콜 데이터 get
       .then((response) => {
         const data = response.data;
 
@@ -67,7 +25,9 @@ const RecallList = () => {
           return acc;
         }, {});
 
-        //  중복 갯수를 기준으로 내림차순 정렬
+        console.log(counts_brand)
+        console.log(counts_model)
+        // 중복 갯수를 기준으로 내림차순 정렬
         const sorted_brand = Object.keys(counts_brand).sort(
           (a, b) => counts_brand[b] - counts_brand[a],
         );
@@ -104,61 +64,55 @@ const RecallList = () => {
   }, [selectedModel]);
 
   return (
-    <MainBlock>
-      <ContentContainer>
-      <div>
-        <h3>상위 Top 3</h3>
-        {top3[0]?.length > 0 && top3[1]?.length > 0 ? ( // 박스를 클릭하면 해당 모델의 정보가 selectedModel 설정
-          top3[0].map((brand, index) => (
-            <BoxContainer
-              key={index}
-              onClick={() => handleModelClick(brand)}
-              // onClick={() => console.log(`상위 Top 3 버튼 ${index + 1} 클릭됨`)}
-            >
-              <Box>
-                <div>
-                  제조사 <b>{brand}</b>
+    <div>
+      <div className="recall-container">
+        <div className="recall-contents-container">
+          <div>
+            <text className="recall-header-text">상위 Top 3</text>
+            {top3[0]?.length > 0 && top3[1]?.length > 0 ? ( // 박스를 클릭하면 해당 모델의 정보가 selectedModel 설정
+              top3[0].map((brand, index) => (
+                <div key={index} onClick={() => handleModelClick(brand)}>
+                  <div className="recall-box">
+                    <div className="recall-contents-text">
+                      제조사<span>{brand}</span>
+                    </div>
+                    <div className="recall-contents-text">
+                      모델명<span>{top3[1][index]}</span>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  모델명 <b>{top3[1][index]}</b>
+              ))
+            ) : (
+              <p>데이터가 없습니다.</p>
+            )}
+          </div>
+          <div>
+            <text className="recall-header-text">하위 Top 3</text>
+            {bottom3[0]?.length > 0 && bottom3[1]?.length > 0 ? (
+              bottom3[0].map((brand, index) => (
+                <div key={index} onClick={() => handleModelClick(brand)}>
+                  <div className="recall-box">
+                    <div className="recall-contents-text">
+                      제조사<span>{brand}</span>
+                    </div>
+                    <div className="recall-contents-text">
+                      모델명<span>{bottom3[1][index]}</span>
+                    </div>
+                  </div>
                 </div>
-              </Box>
-            </BoxContainer>
-          ))
-        ) : (
-          <p>데이터가 없습니다.</p>
+              ))
+            ) : (
+              <p>데이터가 없습니다.</p>
+            )}
+          </div>
+        </div>
+        {selectedModel && ( // WordClude 컴포넌트에 선택된 모델의 제조사(brand) 정보를 전달 */}
+          <div className="w-container">
+            <WordClude brandData={selectedModel.brand} />
+          </div>
         )}
       </div>
-      <div>
-        <h3>하위 Top 3</h3>
-        {bottom3[0]?.length > 0 && bottom3[1]?.length > 0 ? (
-          bottom3[0].map((brand, index) => (
-            <BoxContainer
-              key={index}
-              onClick={() => handleModelClick(brand)}
-              // onClick={() => console.log(`하위 Top 3 버튼 ${index + 1} 클릭됨`)}
-            >
-              <Box>
-                <div>
-                  제조사 <b>{brand}</b>
-                </div>
-                <div>
-                  모델명 <b>{bottom3[1][index]}</b>
-                </div>
-              </Box>
-            </BoxContainer>
-          ))
-        ) : (
-          <p>데이터가 없습니다.</p>
-        )}
-      </div>
-      </ContentContainer>
-      {selectedModel && ( // WordClude 컴포넌트에 선택된 모델의 제조사(brand) 정보를 전달 */}
-        <WordCloudContainer>
-          <WordClude brandData={selectedModel.brand} />
-        </WordCloudContainer>
-      )}
-    </MainBlock>
+    </div>
   );
 };
 

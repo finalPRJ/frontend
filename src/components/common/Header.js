@@ -4,6 +4,7 @@ import Responsive from './Responsive';
 import Button from './Button';
 import { Link } from 'react-router-dom';
 import '../Fonts/Font.css';
+import '../../components/information/information.css'
 
 const HeaderBlock = styled.div`
   position: fixed;
@@ -24,6 +25,7 @@ const Menu = styled.ul`
     display: inline;
     margin: 2rem;
     margin-bottom: 0.5rem;
+    background: white;
     .text {
       /* font-size: 20px; */
       /* font-weight: 800; */
@@ -73,6 +75,7 @@ const Spacer = styled.div`
 const UserInfo = styled.div`
   font-weight: 800;
   margin-right: 1rem;
+  color : black;
 `;
 
 const Header = ({ user, onLogout }) => {
@@ -91,7 +94,7 @@ const Header = ({ user, onLogout }) => {
                 </a>
               </li>
               <li className="text-menu">
-                <a href="/login" className="text">
+                <a href="/reco" className="text">
                   차량추천
                 </a>
               </li>
@@ -106,8 +109,8 @@ const Header = ({ user, onLogout }) => {
                 </a>
               </li>
               <li className="text-menu">
-                <a href="/login" className="text">
-                  리스
+                <a href="/boardlist" className="text">
+                  게시판
                 </a>
               </li>
             </Menu>
