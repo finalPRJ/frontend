@@ -25,8 +25,6 @@ const RecallList = () => {
           return acc;
         }, {});
 
-        console.log(counts_brand)
-        console.log(counts_model)
         // 중복 갯수를 기준으로 내림차순 정렬
         const sorted_brand = Object.keys(counts_brand).sort(
           (a, b) => counts_brand[b] - counts_brand[a],
@@ -106,7 +104,7 @@ const RecallList = () => {
             )}
           </div>
         </div>
-        {selectedModel && ( // WordClude 컴포넌트에 선택된 모델의 제조사(brand) 정보를 전달 */}
+        {selectedModel && ( // WordClude 컴포넌트에 선택된 모델의 제조사(brand) 정보를 전달
           <div className="w-container">
             <WordClude brandData={selectedModel.brand} />
           </div>

@@ -79,8 +79,8 @@ const Chart = () => {
               layout="vertical"
               verticalAlign="top"
               align="top"
-              width='100%'
-              background-color='#000000'
+              width="100%"
+              background-color="#000000"
             />
             <Pie
               data={datas}
