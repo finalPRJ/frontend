@@ -82,33 +82,33 @@ const Header = ({ user, onLogout }) => {
     <>
       <HeaderBlock>
         <Wrapper>
-          <Link to="/" className="logo">
+          <Link to={`${process.env.PUBLIC_URL}/`} className="logo">
             중고차 사이트
           </Link>
           <div className="menu">
             <Menu>
               <li className="text-menu">
-                <a href="/carsearch" className="text">
+                <a href={`${process.env.PUBLIC_URL}/carsearch`} className="text">
                   차량검색
                 </a>
               </li>
               <li className="text-menu">
-                <a href="/reco" className="text">
+                <a href={`${process.env.PUBLIC_URL}/reco`} className="text">
                   차량추천
                 </a>
               </li>
               <li className="text-menu">
-                <a href="/recall" className="text">
+                <a href={`${process.env.PUBLIC_URL}/recall`} className="text">
                   리콜분석
                 </a>
               </li>
               <li className="text-menu">
-                <a href="/Information" className="text">
+                <a href={`${process.env.PUBLIC_URL}/Information`} className="text">
                   자동차정보
                 </a>
               </li>
               <li className="text-menu">
-                <a href="/boardlist" className="text">
+                <a href={`${process.env.PUBLIC_URL}/boardlist`} className="text">
                   커뮤니티
                 </a>
               </li>
@@ -121,7 +121,7 @@ const Header = ({ user, onLogout }) => {
             </div>
           ) : (
             <div className="right">
-              <Button to="/login">로그인</Button>
+              <Button to={`${process.env.PUBLIC_URL}/login`}>로그인</Button>
             </div>
           )}
         </Wrapper>

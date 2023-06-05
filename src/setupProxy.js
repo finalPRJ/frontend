@@ -1,10 +1,11 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const { API_BASE_URL } = require('./lib/api/OAuth');
 
 module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://192.168.0.242:8070',
+      target: `${API_BASE_URL}`,
       changeOrigin: true,
     })
   );
