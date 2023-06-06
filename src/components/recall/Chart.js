@@ -12,8 +12,9 @@ const Chart = () => {
       .get(`${API_BASE_URL}/recall/data`) // 리콜 데이터 get
       .then((response) => {
         var reasons = [];
-        response.data.sort(function (a) {
+        response.data.sort((a, b) => {
           reasons.push(a.reasons);
+          return 0; // 반환문 추가
         });
 
         // 중복 값 갯수

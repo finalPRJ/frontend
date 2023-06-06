@@ -10,7 +10,7 @@ import carImage from '../information/svg/image-01.svg';
 const Maininfo = () => {
   return (
     <div className="main-container">
-        <img src={carImage} className="car-image" style={{height: 550}}/>
+        <img src={carImage} className="car-image" style={{height: 550}} alt="car"/>
       <div className="header-text">자동차 어디까지 알고 계신가요?</div>
       <div className="icon-container">
         <div className="icon-item">
