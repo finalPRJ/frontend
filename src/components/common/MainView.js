@@ -180,7 +180,7 @@ const MainView = () => {
         <View>
             <Carousel showThumbs={false} autoPlay infiniteLoop interval={3500}>
             <div className="div2">
-                <a href="carsearch"> 
+                <a href="/carsearch"> 
                     <img src={Search} alt="Search" />
                     <Text1>차량 검색 서비스</Text1>
                     <Explan color="#004D40">🔍 옵션 검색 기능 소개<br/><br/>
@@ -196,7 +196,7 @@ const MainView = () => {
                 </a>
             </div>
             <div className="div">
-                <a href="reco">
+                <a href="/reco">
                     <img src={Recommend} alt="Recommend" />
                     <Text2>차량 추천 서비스</Text2>
                     <Explan color="black">🔍 차량 추천 기능 소개<br/><br/>
@@ -217,7 +217,7 @@ const MainView = () => {
                 </a>
             </div>
             <div className="div3">
-                <a href="recall"> 
+                <a href="/recall"> 
                     <img src={Recall} alt="Recall" />
                     <Text3>리콜 정보 서비스</Text3>
                     <Explan color="#4169E1">🔍 리콜 정보 서비스 소개<br/><br/>
@@ -232,7 +232,7 @@ const MainView = () => {
                 </a>
             </div>
             <div className="div">
-                <a href="Information"> 
+                <a href="/Information"> 
                     <img src={Info} alt="Info" />
                     <Text4 color="black">자동차 정보 서비스</Text4>
                     <Explan>🔍 자동차 정보 서비스 소개<br/><br/>
@@ -247,7 +247,7 @@ const MainView = () => {
                 </a>
             </div>
             <div className="div">
-                <a href="boardlist">
+                <a href="/boardlist">
                     <img src={Community} alt="Community" />
                     <Text5>커뮤니티 게시판</Text5>
                     <Explan color="black">
