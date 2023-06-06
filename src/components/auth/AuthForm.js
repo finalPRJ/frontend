@@ -4,6 +4,7 @@ import Button from "../common/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, submitUserInfo } from "../../modules/user";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const ButtonWithMarginTop = styled(Button)`
     margin-top : 1rem;
@@ -47,10 +48,11 @@ const AuthForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { currentUser, sex, year } = useSelector(({ user }) => ({
+  const { currentUser, sex, year, setinfo } = useSelector(({ user }) => ({
     currentUser: user.currentUser,
     sex: user.userinfo.sex,
     year: user.userinfo.year,
+    setinfo : user.setinfo
   }));
 
   const handleInputChange = (e) => {
@@ -68,6 +70,12 @@ const AuthForm = () => {
     console.log(data);
     dispatch(submitUserInfo(data));
   };
+
+  useEffect(() => {
+    if(setinfo) {
+      navigate('/')
+    }
+  });
 
   return (
     <AuthFormBlock>

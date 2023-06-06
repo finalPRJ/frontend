@@ -151,8 +151,8 @@ const BoardItem = ({boards}) => {
                 {
                     boards.data.dtoList.map(board => (
                         <tr key={board.bno}>
-                            <td><Link to = {`/board/read?bno=${board.bno}`}>{board.bno}</Link></td>
-                            <td><Link to = {`/board/read?bno=${board.bno}`}>{board.title}</Link></td>
+                            <td><Link to = {`${process.env.PUBLIC_URL}/board/read?bno=${board.bno}`}>{board.bno}</Link></td>
+                            <td><Link to = {`${process.env.PUBLIC_URL}/board/read?bno=${board.bno}`}>{board.title}</Link></td>
                             <td>{board.replyCount}</td>
                             <td>{board.writerNickname}</td>
                             <td>{formatDateTime(board.createtime)}</td>
@@ -215,7 +215,7 @@ const BoardForm = ({ boards, error, changeBtypeField, handleChangePage }) => {
                             <div
                                 class = "button2" 
                                 onClick={() => {
-                                    navigate('/write');
+                                    navigate(`${process.env.PUBLIC_URL}/write`);
                                 }}
                             >
                                 글 작성

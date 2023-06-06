@@ -92,6 +92,7 @@ const initialState = {
     sex: '',
     year: ''
   },
+  setinfo: false,
 };
 
 // Redux reducer 함수 정의
@@ -118,7 +119,7 @@ const user = handleActions(
       currentUser: null,
       authenticated: false,
     }),
-    [CHANGE_FIELD]: (state, { payload: {key,value }}) =>
+    [CHANGE_FIELD]: (state, { payload: { key,value }}) =>
       produce(state, draft => {
         draft.userinfo[key] = value;
     }),
@@ -126,6 +127,7 @@ const user = handleActions(
       ...state,
       currentUser: payload,
       authenticated: true,
+      setinfo: true,
       error: null,
     }),
     [SUBMIT_USER_INFO_FAILURE]: (state, { payload }) => ({
